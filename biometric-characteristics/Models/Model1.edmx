@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PersonSet" EntityType="Model1.Person" />
+          <EntitySet Name="DeviceSet" EntityType="Model1.Device" />
+          <EntitySet Name="SampleSet" EntityType="Model1.Sample" />
+          <AssociationSet Name="PersonSample" Association="Model1.PersonSample">
+            <End Role="Person" EntitySet="PersonSet" />
+            <End Role="Sample" EntitySet="SampleSet" />
+          </AssociationSet>
+          <EntitySet Name="KeystrokeSet" EntityType="Model1.Keystroke" />
+          <EntitySet Name="KeyboardSet" EntityType="Model1.Keyboard" />
+          <EntitySet Name="SignatureSet" EntityType="Model1.Signature" />
+          <EntitySet Name="FingerprintSet" EntityType="Model1.Fingerprint" />
+          <EntitySet Name="PalmprintSet" EntityType="Model1.Palmprint" />
+          <EntitySet Name="FaceSet" EntityType="Model1.Face" />
+          <EntitySet Name="SpeechSet" EntityType="Model1.Speech" />
+          <EntitySet Name="IrisSet" EntityType="Model1.Iris" />
+          <EntitySet Name="HandwritingSet" EntityType="Model1.Handwriting" />
+          <EntitySet Name="TextSet" EntityType="Model1.Text" />
+          <EntitySet Name="LanguageSet" EntityType="Model1.Language" />
+          <EntitySet Name="GaitSet" EntityType="Model1.Gait" />
+          <EntitySet Name="DeviceTypeSet" EntityType="Model1.DeviceType" />
+          <EntitySet Name="SampleTypeSet" EntityType="Model1.SampleType" />
+          <AssociationSet Name="SampleTypeSample" Association="Model1.SampleTypeSample">
+            <End Role="SampleType" EntitySet="SampleTypeSet" />
+            <End Role="Sample" EntitySet="SampleSet" />
+          </AssociationSet>
+          <AssociationSet Name="DeviceSample" Association="Model1.DeviceSample">
+            <End Role="Device" EntitySet="DeviceSet" />
+            <End Role="Sample" EntitySet="SampleSet" />
+          </AssociationSet>
+          <AssociationSet Name="DeviceTypeDevice" Association="Model1.DeviceTypeDevice">
+            <End Role="DeviceType" EntitySet="DeviceTypeSet" />
+            <End Role="Device" EntitySet="DeviceSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleFingerprint" Association="Model1.SampleFingerprint">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Fingerprint" EntitySet="FingerprintSet" />
+          </AssociationSet>
+          <AssociationSet Name="SamplePalmprint" Association="Model1.SamplePalmprint">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Palmprint" EntitySet="PalmprintSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleFace" Association="Model1.SampleFace">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Face" EntitySet="FaceSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleIris" Association="Model1.SampleIris">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Iris" EntitySet="IrisSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleGait" Association="Model1.SampleGait">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Gait" EntitySet="GaitSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleSpeech" Association="Model1.SampleSpeech">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Speech" EntitySet="SpeechSet" />
+          </AssociationSet>
+          <AssociationSet Name="SampleHandwriting" Association="Model1.SampleHandwriting">
+            <End Role="Sample" EntitySet="SampleSet" />
+            <End Role="Handwriting" EntitySet="HandwritingSet" />
+          </AssociationSet>
+          <AssociationSet Name="TextHandwriting" Association="Model1.TextHandwriting">
+            <End Role="Text" EntitySet="TextSet" />
+            <End Role="Handwriting" EntitySet="HandwritingSet" />
+          </AssociationSet>
+          <AssociationSet Name="SignatureSample" Association="Model1.SignatureSample">
+            <End Role="Signature" EntitySet="SignatureSet" />
+            <End Role="Sample" EntitySet="SampleSet" />
+          </AssociationSet>
+          <AssociationSet Name="LanguageText" Association="Model1.LanguageText">
+            <End Role="Language" EntitySet="LanguageSet" />
+            <End Role="Text" EntitySet="TextSet" />
+          </AssociationSet>
+          <AssociationSet Name="PersonKeystroke" Association="Model1.PersonKeystroke">
+            <End Role="Person" EntitySet="PersonSet" />
+            <End Role="Keystroke" EntitySet="KeystrokeSet" />
+          </AssociationSet>
+          <EntitySet Name="SampleDatasetSet" EntityType="Model1.SampleDataset" />
+          <AssociationSet Name="SampleDatasetSample" Association="Model1.SampleDatasetSample">
+            <End Role="SampleDataset" EntitySet="SampleDatasetSet" />
+            <End Role="Sample" EntitySet="SampleSet" />
+          </AssociationSet>
+          <EntitySet Name="KeystrokeDatasetSet" EntityType="Model1.KeystrokeDataset" />
+          <AssociationSet Name="KeystrokeDatasetKeystroke" Association="Model1.KeystrokeDatasetKeystroke">
+            <End Role="KeystrokeDataset" EntitySet="KeystrokeDatasetSet" />
+            <End Role="Keystroke" EntitySet="KeystrokeSet" />
+          </AssociationSet>
+          <AssociationSet Name="KeyboardKeystroke" Association="Model1.KeyboardKeystroke">
+            <End Role="Keyboard" EntitySet="KeyboardSet" />
+            <End Role="Keystroke" EntitySet="KeystrokeSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
+          <Property Name="Gender" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sample" Relationship="Model1.PersonSample" FromRole="Person" ToRole="Sample" />
+          <NavigationProperty Name="Keystroke" Relationship="Model1.PersonKeystroke" FromRole="Person" ToRole="Keystroke" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sample" Relationship="Model1.DeviceSample" FromRole="Device" ToRole="Sample" />
+          <NavigationProperty Name="DeviceType" Relationship="Model1.DeviceTypeDevice" FromRole="Device" ToRole="DeviceType" />
+          <Property Name="DeviceTypeId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Sample">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilePath" Type="String" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" />
+          <Property Name="FileType" Type="String" Nullable="false" />
+          <Property Name="DataSet" Type="String" Nullable="false" />
+          <Property Name="DateCreated" Type="String" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Model1.PersonSample" FromRole="Sample" ToRole="Person" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SampleType" Relationship="Model1.SampleTypeSample" FromRole="Sample" ToRole="SampleType" />
+          <Property Name="SampleTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="Model1.DeviceSample" FromRole="Sample" ToRole="Device" />
+          <Property Name="DeviceId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Fingerprint" Relationship="Model1.SampleFingerprint" FromRole="Sample" ToRole="Fingerprint" />
+          <NavigationProperty Name="Palmprint" Relationship="Model1.SamplePalmprint" FromRole="Sample" ToRole="Palmprint" />
+          <NavigationProperty Name="Face" Relationship="Model1.SampleFace" FromRole="Sample" ToRole="Face" />
+          <NavigationProperty Name="Iris" Relationship="Model1.SampleIris" FromRole="Sample" ToRole="Iris" />
+          <NavigationProperty Name="Gait" Relationship="Model1.SampleGait" FromRole="Sample" ToRole="Gait" />
+          <NavigationProperty Name="Speech" Relationship="Model1.SampleSpeech" FromRole="Sample" ToRole="Speech" />
+          <NavigationProperty Name="Handwriting" Relationship="Model1.SampleHandwriting" FromRole="Sample" ToRole="Handwriting" />
+          <NavigationProperty Name="Signature" Relationship="Model1.SignatureSample" FromRole="Sample" ToRole="Signature" />
+          <NavigationProperty Name="SampleDataset" Relationship="Model1.SampleDatasetSample" FromRole="Sample" ToRole="SampleDataset" />
+          <Property Name="SampleDatasetId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="PersonSample">
+          <End Type="Model1.Person" Role="Person" Multiplicity="1" />
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sample">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Keystroke">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Success" Type="Boolean" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="PpTime" Type="String" Nullable="false" />
+          <Property Name="RrTime" Type="String" Nullable="false" />
+          <Property Name="PrTime" Type="String" Nullable="false" />
+          <Property Name="RpTime" Type="String" Nullable="false" />
+          <Property Name="Vector" Type="String" Nullable="false" />
+          <Property Name="TimeToType" Type="String" Nullable="false" />
+          <Property Name="RawPress" Type="String" Nullable="false" />
+          <Property Name="RawRelease" Type="String" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Model1.PersonKeystroke" FromRole="Keystroke" ToRole="Person" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KeystrokeDataset" Relationship="Model1.KeystrokeDatasetKeystroke" FromRole="Keystroke" ToRole="KeystrokeDataset" />
+          <Property Name="KeystrokeDatasetId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Keyboard" Relationship="Model1.KeyboardKeystroke" FromRole="Keystroke" ToRole="Keyboard" />
+          <Property Name="KeyboardId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Keyboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <NavigationProperty Name="Keystroke" Relationship="Model1.KeyboardKeystroke" FromRole="Keyboard" ToRole="Keystroke" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Signature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SignatureSample" FromRole="Signature" ToRole="Sample" />
+          <Property Name="XCoordinate" Type="Int32" Nullable="false" />
+          <Property Name="YCoordinate" Type="Int32" Nullable="false" />
+          <Property Name="SyntheticTimestamp" Type="Int32" Nullable="false" />
+          <Property Name="Penups" Type="Boolean" Nullable="false" />
+          <Property Name="Pressure" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fingerprint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hand" Type="String" Nullable="false" />
+          <Property Name="Finger" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleFingerprint" FromRole="Fingerprint" ToRole="Sample" />
+        </EntityType>
+        <EntityType Name="Palmprint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SamplePalmprint" FromRole="Palmprint" ToRole="Sample" />
+          <Property Name="Hand" Type="String" Nullable="false" />
+          <Property Name="Position" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Face">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Position" Type="String" Nullable="false" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleFace" FromRole="Face" ToRole="Sample" />
+        </EntityType>
+        <EntityType Name="Speech">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleSpeech" FromRole="Speech" ToRole="Sample" />
+          <Property Name="Quality" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Iris">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleIris" FromRole="Iris" ToRole="Sample" />
+          <Property Name="Eye" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Handwriting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleHandwriting" FromRole="Handwriting" ToRole="Sample" />
+          <NavigationProperty Name="Text" Relationship="Model1.TextHandwriting" FromRole="Handwriting" ToRole="Text" />
+          <Property Name="TextId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Text">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Handwriting" Relationship="Model1.TextHandwriting" FromRole="Text" ToRole="Handwriting" />
+          <NavigationProperty Name="Language" Relationship="Model1.LanguageText" FromRole="Text" ToRole="Language" />
+          <Property Name="LanguageId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Text" Relationship="Model1.LanguageText" FromRole="Language" ToRole="Text" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gait">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleGait" FromRole="Gait" ToRole="Sample" />
+          <Property Name="Direction" Type="String" Nullable="false" />
+          <Property Name="FrameNumber" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="Device" Relationship="Model1.DeviceTypeDevice" FromRole="DeviceType" ToRole="Device" />
+        </EntityType>
+        <EntityType Name="SampleType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleTypeSample" FromRole="SampleType" ToRole="Sample" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="SampleTypeSample">
+          <End Type="Model1.SampleType" Role="SampleType" Multiplicity="1" />
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SampleType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sample">
+              <PropertyRef Name="SampleTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeviceSample">
+          <End Type="Model1.Device" Role="Device" Multiplicity="0..1" />
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Device">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sample">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeviceTypeDevice">
+          <End Type="Model1.DeviceType" Role="DeviceType" Multiplicity="0..1" />
+          <End Type="Model1.Device" Role="Device" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Device">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SampleFingerprint">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Fingerprint" Role="Fingerprint" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SamplePalmprint">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Palmprint" Role="Palmprint" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SampleFace">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Face" Role="Face" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SampleIris">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Iris" Role="Iris" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SampleGait">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Gait" Role="Gait" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SampleSpeech">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Speech" Role="Speech" Multiplicity="0..1" />
+        </Association>
+        <Association Name="SampleHandwriting">
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+          <End Type="Model1.Handwriting" Role="Handwriting" Multiplicity="0..1" />
+        </Association>
+        <Association Name="TextHandwriting">
+          <End Type="Model1.Text" Role="Text" Multiplicity="0..1" />
+          <End Type="Model1.Handwriting" Role="Handwriting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Text">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Handwriting">
+              <PropertyRef Name="TextId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SignatureSample">
+          <End Type="Model1.Signature" Role="Signature" Multiplicity="0..1" />
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="1" />
+        </Association>
+        <Association Name="LanguageText">
+          <End Type="Model1.Language" Role="Language" Multiplicity="0..1" />
+          <End Type="Model1.Text" Role="Text" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Text">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonKeystroke">
+          <End Type="Model1.Person" Role="Person" Multiplicity="1" />
+          <End Type="Model1.Keystroke" Role="Keystroke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Keystroke">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SampleDataset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Sample" Relationship="Model1.SampleDatasetSample" FromRole="SampleDataset" ToRole="Sample" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="SampleDatasetSample">
+          <End Type="Model1.SampleDataset" Role="SampleDataset" Multiplicity="0..1" />
+          <End Type="Model1.Sample" Role="Sample" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SampleDataset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sample">
+              <PropertyRef Name="SampleDatasetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KeystrokeDataset">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Keystroke" Relationship="Model1.KeystrokeDatasetKeystroke" FromRole="KeystrokeDataset" ToRole="Keystroke" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="KeystrokeDatasetKeystroke">
+          <End Type="Model1.KeystrokeDataset" Role="KeystrokeDataset" Multiplicity="0..1" />
+          <End Type="Model1.Keystroke" Role="Keystroke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KeystrokeDataset">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Keystroke">
+              <PropertyRef Name="KeystrokeDatasetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KeyboardKeystroke">
+          <End Type="Model1.Keyboard" Role="Keyboard" Multiplicity="0..1" />
+          <End Type="Model1.Keystroke" Role="Keystroke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keyboard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Keystroke">
+              <PropertyRef Name="KeyboardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

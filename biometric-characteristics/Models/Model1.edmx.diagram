@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b7fae70223b24c2ea7cd8ba9002fab9c" Name="Diagram1" ZoomLevel="79" >
+        <EntityTypeShape EntityType="Model1.Person" Width="1.5" PointX="5.25" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Device" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Sample" Width="3.625" PointX="5.125" PointY="4" />
+        <AssociationConnector Association="Model1.PersonSample" />
+        <EntityTypeShape EntityType="Model1.Keystroke" Width="1.875" PointX="2.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Keyboard" Width="1.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Signature" Width="1.5" PointX="0.5" PointY="6.625" />
+        <EntityTypeShape EntityType="Model1.Fingerprint" Width="1.5" PointX="11.125" PointY="6" />
+        <EntityTypeShape EntityType="Model1.Palmprint" Width="1.5" PointX="11.125" PointY="8.125" />
+        <EntityTypeShape EntityType="Model1.Face" Width="1.5" PointX="9.875" PointY="12.25" />
+        <EntityTypeShape EntityType="Model1.Speech" Width="1.5" PointX="3.25" PointY="12.375" />
+        <EntityTypeShape EntityType="Model1.Iris" Width="1.5" PointX="7.625" PointY="12.375" />
+        <EntityTypeShape EntityType="Model1.Handwriting" Width="1.5" PointX="2.625" PointY="8.25" />
+        <EntityTypeShape EntityType="Model1.Text" Width="1.5" PointX="0.5" PointY="9.75" />
+        <EntityTypeShape EntityType="Model1.Language" Width="1.5" PointX="0.5" PointY="12.375" />
+        <EntityTypeShape EntityType="Model1.Gait" Width="1.5" PointX="5.625" PointY="12.375" />
+        <EntityTypeShape EntityType="Model1.DeviceType" Width="1.5" PointX="11" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.SampleType" Width="1.5" PointX="11.125" PointY="3.875" />
+        <AssociationConnector Association="Model1.SampleTypeSample" />
+        <AssociationConnector Association="Model1.DeviceSample" />
+        <AssociationConnector Association="Model1.DeviceTypeDevice" />
+        <AssociationConnector Association="Model1.SampleFingerprint" />
+        <AssociationConnector Association="Model1.SamplePalmprint" />
+        <AssociationConnector Association="Model1.SampleFace" ManuallyRouted="true" >
+          <ConnectorPoint PointX="8.5859823397513413" PointY="9.2494108072916656" />
+          <ConnectorPoint PointX="8.5859823397513413" PointY="10.768460237654526" />
+          <ConnectorPoint PointX="10.725764732592266" PointY="10.768460237654526" />
+          <ConnectorPoint PointX="10.725764732592266" PointY="12.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model1.SampleIris" />
+        <AssociationConnector Association="Model1.SampleGait" />
+        <AssociationConnector Association="Model1.SampleSpeech" ManuallyRouted="true" >
+          <ConnectorPoint PointX="5.3697993059190336" PointY="9.2494108072916656" />
+          <ConnectorPoint PointX="5.3697993059190336" PointY="10.71492648553193" />
+          <ConnectorPoint PointX="3.9990486367147362" PointY="10.71492648553193" />
+          <ConnectorPoint PointX="3.9990486367147362" PointY="12.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model1.SampleHandwriting" />
+        <AssociationConnector Association="Model1.TextHandwriting" />
+        <AssociationConnector Association="Model1.SignatureSample" />
+        <AssociationConnector Association="Model1.LanguageText" />
+        <AssociationConnector Association="Model1.PersonKeystroke" />
+        <EntityTypeShape EntityType="Model1.SampleDataset" Width="1.5" PointX="0.5" PointY="4.75" />
+        <AssociationConnector Association="Model1.SampleDatasetSample" />
+        <EntityTypeShape EntityType="Model1.KeystrokeDataset" Width="1.5" PointX="0.5" PointY="2.75" />
+        <AssociationConnector Association="Model1.KeystrokeDatasetKeystroke" />
+        <AssociationConnector Association="Model1.KeyboardKeystroke" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
