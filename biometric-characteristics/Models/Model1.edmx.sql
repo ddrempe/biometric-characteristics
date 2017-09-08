@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/08/2017 14:08:26
+-- Date Created: 09/08/2017 15:04:23
 -- Generated from EDMX file: C:\Users\ddrempetic\Documents\SourceTree\biometric-characteristics\biometric-characteristics\Models\Model1.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,122 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_PersonSample]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SampleSet] DROP CONSTRAINT [FK_PersonSample];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleTypeSample]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SampleSet] DROP CONSTRAINT [FK_SampleTypeSample];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DeviceSample]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SampleSet] DROP CONSTRAINT [FK_DeviceSample];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DeviceTypeDevice]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DeviceSet] DROP CONSTRAINT [FK_DeviceTypeDevice];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleFingerprint]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FingerprintSet] DROP CONSTRAINT [FK_SampleFingerprint];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SamplePalmprint]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PalmprintSet] DROP CONSTRAINT [FK_SamplePalmprint];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleFace]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FaceSet] DROP CONSTRAINT [FK_SampleFace];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleIris]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[IrisSet] DROP CONSTRAINT [FK_SampleIris];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleGait]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[GaitSet] DROP CONSTRAINT [FK_SampleGait];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleSpeech]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SpeechSet] DROP CONSTRAINT [FK_SampleSpeech];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleHandwriting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HandwritingSet] DROP CONSTRAINT [FK_SampleHandwriting];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TextHandwriting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HandwritingSet] DROP CONSTRAINT [FK_TextHandwriting];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SignatureSample]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SignatureSet] DROP CONSTRAINT [FK_SignatureSample];
+GO
+IF OBJECT_ID(N'[dbo].[FK_LanguageText]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TextSet] DROP CONSTRAINT [FK_LanguageText];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PersonKeystroke]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KeystrokeSet] DROP CONSTRAINT [FK_PersonKeystroke];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SampleDatasetSample]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[SampleSet] DROP CONSTRAINT [FK_SampleDatasetSample];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KeystrokeDatasetKeystroke]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KeystrokeSet] DROP CONSTRAINT [FK_KeystrokeDatasetKeystroke];
+GO
+IF OBJECT_ID(N'[dbo].[FK_KeyboardKeystroke]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[KeystrokeSet] DROP CONSTRAINT [FK_KeyboardKeystroke];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[PersonSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PersonSet];
+GO
+IF OBJECT_ID(N'[dbo].[DeviceSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeviceSet];
+GO
+IF OBJECT_ID(N'[dbo].[SampleSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SampleSet];
+GO
+IF OBJECT_ID(N'[dbo].[KeystrokeSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KeystrokeSet];
+GO
+IF OBJECT_ID(N'[dbo].[KeyboardSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KeyboardSet];
+GO
+IF OBJECT_ID(N'[dbo].[SignatureSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SignatureSet];
+GO
+IF OBJECT_ID(N'[dbo].[FingerprintSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FingerprintSet];
+GO
+IF OBJECT_ID(N'[dbo].[PalmprintSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PalmprintSet];
+GO
+IF OBJECT_ID(N'[dbo].[FaceSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FaceSet];
+GO
+IF OBJECT_ID(N'[dbo].[SpeechSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SpeechSet];
+GO
+IF OBJECT_ID(N'[dbo].[IrisSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IrisSet];
+GO
+IF OBJECT_ID(N'[dbo].[HandwritingSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[HandwritingSet];
+GO
+IF OBJECT_ID(N'[dbo].[TextSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TextSet];
+GO
+IF OBJECT_ID(N'[dbo].[LanguageSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LanguageSet];
+GO
+IF OBJECT_ID(N'[dbo].[GaitSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[GaitSet];
+GO
+IF OBJECT_ID(N'[dbo].[DeviceTypeSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DeviceTypeSet];
+GO
+IF OBJECT_ID(N'[dbo].[SampleTypeSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SampleTypeSet];
+GO
+IF OBJECT_ID(N'[dbo].[SampleDatasetSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SampleDatasetSet];
+GO
+IF OBJECT_ID(N'[dbo].[KeystrokeDatasetSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[KeystrokeDatasetSet];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
