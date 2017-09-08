@@ -4,11 +4,499 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="Model1TargetContainer" >
-        </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="PersonSet" EntityType="Model1.Store.PersonSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeviceSet" EntityType="Model1.Store.DeviceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SampleSet" EntityType="Model1.Store.SampleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KeystrokeSet" EntityType="Model1.Store.KeystrokeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KeyboardSet" EntityType="Model1.Store.KeyboardSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SignatureSet" EntityType="Model1.Store.SignatureSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FingerprintSet" EntityType="Model1.Store.FingerprintSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PalmprintSet" EntityType="Model1.Store.PalmprintSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FaceSet" EntityType="Model1.Store.FaceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpeechSet" EntityType="Model1.Store.SpeechSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IrisSet" EntityType="Model1.Store.IrisSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HandwritingSet" EntityType="Model1.Store.HandwritingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TextSet" EntityType="Model1.Store.TextSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LanguageSet" EntityType="Model1.Store.LanguageSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GaitSet" EntityType="Model1.Store.GaitSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeviceTypeSet" EntityType="Model1.Store.DeviceTypeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SampleTypeSet" EntityType="Model1.Store.SampleTypeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SampleDatasetSet" EntityType="Model1.Store.SampleDatasetSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KeystrokeDatasetSet" EntityType="Model1.Store.KeystrokeDatasetSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PersonSample" Association="Model1.Store.PersonSample">
+      <End Role="Person" EntitySet="PersonSet" />
+      <End Role="Sample" EntitySet="SampleSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleTypeSample" Association="Model1.Store.SampleTypeSample">
+      <End Role="SampleType" EntitySet="SampleTypeSet" />
+      <End Role="Sample" EntitySet="SampleSet" />
+    </AssociationSet>
+    <AssociationSet Name="DeviceSample" Association="Model1.Store.DeviceSample">
+      <End Role="Device" EntitySet="DeviceSet" />
+      <End Role="Sample" EntitySet="SampleSet" />
+    </AssociationSet>
+    <AssociationSet Name="DeviceTypeDevice" Association="Model1.Store.DeviceTypeDevice">
+      <End Role="DeviceType" EntitySet="DeviceTypeSet" />
+      <End Role="Device" EntitySet="DeviceSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleFingerprint" Association="Model1.Store.SampleFingerprint">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Fingerprint" EntitySet="FingerprintSet" />
+    </AssociationSet>
+    <AssociationSet Name="SamplePalmprint" Association="Model1.Store.SamplePalmprint">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Palmprint" EntitySet="PalmprintSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleFace" Association="Model1.Store.SampleFace">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Face" EntitySet="FaceSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleIris" Association="Model1.Store.SampleIris">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Iris" EntitySet="IrisSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleGait" Association="Model1.Store.SampleGait">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Gait" EntitySet="GaitSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleSpeech" Association="Model1.Store.SampleSpeech">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Speech" EntitySet="SpeechSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleHandwriting" Association="Model1.Store.SampleHandwriting">
+      <End Role="Sample" EntitySet="SampleSet" />
+      <End Role="Handwriting" EntitySet="HandwritingSet" />
+    </AssociationSet>
+    <AssociationSet Name="TextHandwriting" Association="Model1.Store.TextHandwriting">
+      <End Role="Text" EntitySet="TextSet" />
+      <End Role="Handwriting" EntitySet="HandwritingSet" />
+    </AssociationSet>
+    <AssociationSet Name="SignatureSample" Association="Model1.Store.SignatureSample">
+      <End Role="Signature" EntitySet="SignatureSet" />
+      <End Role="Sample" EntitySet="SampleSet" />
+    </AssociationSet>
+    <AssociationSet Name="LanguageText" Association="Model1.Store.LanguageText">
+      <End Role="Language" EntitySet="LanguageSet" />
+      <End Role="Text" EntitySet="TextSet" />
+    </AssociationSet>
+    <AssociationSet Name="PersonKeystroke" Association="Model1.Store.PersonKeystroke">
+      <End Role="Person" EntitySet="PersonSet" />
+      <End Role="Keystroke" EntitySet="KeystrokeSet" />
+    </AssociationSet>
+    <AssociationSet Name="SampleDatasetSample" Association="Model1.Store.SampleDatasetSample">
+      <End Role="SampleDataset" EntitySet="SampleDatasetSet" />
+      <End Role="Sample" EntitySet="SampleSet" />
+    </AssociationSet>
+    <AssociationSet Name="KeystrokeDatasetKeystroke" Association="Model1.Store.KeystrokeDatasetKeystroke">
+      <End Role="KeystrokeDataset" EntitySet="KeystrokeDatasetSet" />
+      <End Role="Keystroke" EntitySet="KeystrokeSet" />
+    </AssociationSet>
+    <AssociationSet Name="KeyboardKeystroke" Association="Model1.Store.KeyboardKeystroke">
+      <End Role="Keyboard" EntitySet="KeyboardSet" />
+      <End Role="Keystroke" EntitySet="KeystrokeSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PersonSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="DateOfBirth" Type="datetime" Nullable="true" />
+    <Property Name="Gender" Type="nvarchar" Nullable="true" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="DeviceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Manufacturer" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="DeviceTypeId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SampleSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="FileType" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="DateCreated" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="SampleTypeId" Type="int" Nullable="false" />
+    <Property Name="DeviceId" Type="int" Nullable="true" />
+    <Property Name="SampleDatasetId" Type="int" Nullable="true" />
+    <Property Name="FullFilePath" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KeystrokeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Success" Type="bit" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PpTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RrTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PrTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RpTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Vector" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TimeToType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RawPress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RawRelease" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="KeystrokeDatasetId" Type="int" Nullable="true" />
+    <Property Name="KeyboardId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="KeyboardSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SignatureSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="XCoordinate" Type="int" Nullable="true" />
+    <Property Name="YCoordinate" Type="int" Nullable="true" />
+    <Property Name="SyntheticTimestamp" Type="int" Nullable="true" />
+    <Property Name="Penups" Type="bit" Nullable="true" />
+    <Property Name="Pressure" Type="int" Nullable="true" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FingerprintSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hand" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="Finger" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PalmprintSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hand" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="Position" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FaceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpeechSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quality" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IrisSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Eye" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HandwritingSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TextId" Type="int" Nullable="true" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TextSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="LanguageSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Code" Type="nvarchar" Nullable="true" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="GaitSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Direction" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="FrameNumber" Type="int" Nullable="true" />
+    <Property Name="Sample_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeviceTypeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SampleTypeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SampleDatasetSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="KeystrokeDatasetSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <Association Name="PersonSample">
+    <End Role="Person" Type="Model1.Store.PersonSet" Multiplicity="1" />
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sample">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleTypeSample">
+    <End Role="SampleType" Type="Model1.Store.SampleTypeSet" Multiplicity="1" />
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SampleType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sample">
+        <PropertyRef Name="SampleTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeviceSample">
+    <End Role="Device" Type="Model1.Store.DeviceSet" Multiplicity="0..1" />
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sample">
+        <PropertyRef Name="DeviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeviceTypeDevice">
+    <End Role="DeviceType" Type="Model1.Store.DeviceTypeSet" Multiplicity="0..1" />
+    <End Role="Device" Type="Model1.Store.DeviceSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeviceType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Device">
+        <PropertyRef Name="DeviceTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleFingerprint">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Fingerprint" Type="Model1.Store.FingerprintSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fingerprint">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SamplePalmprint">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Palmprint" Type="Model1.Store.PalmprintSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Palmprint">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleFace">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Face" Type="Model1.Store.FaceSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Face">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleIris">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Iris" Type="Model1.Store.IrisSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Iris">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleGait">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Gait" Type="Model1.Store.GaitSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Gait">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleSpeech">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Speech" Type="Model1.Store.SpeechSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Speech">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleHandwriting">
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <End Role="Handwriting" Type="Model1.Store.HandwritingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Handwriting">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TextHandwriting">
+    <End Role="Text" Type="Model1.Store.TextSet" Multiplicity="0..1" />
+    <End Role="Handwriting" Type="Model1.Store.HandwritingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Text">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Handwriting">
+        <PropertyRef Name="TextId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SignatureSample">
+    <End Role="Signature" Type="Model1.Store.SignatureSet" Multiplicity="*" />
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sample">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Signature">
+        <PropertyRef Name="Sample_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LanguageText">
+    <End Role="Language" Type="Model1.Store.LanguageSet" Multiplicity="0..1" />
+    <End Role="Text" Type="Model1.Store.TextSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Text">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonKeystroke">
+    <End Role="Person" Type="Model1.Store.PersonSet" Multiplicity="1" />
+    <End Role="Keystroke" Type="Model1.Store.KeystrokeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Keystroke">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SampleDatasetSample">
+    <End Role="SampleDataset" Type="Model1.Store.SampleDatasetSet" Multiplicity="0..1" />
+    <End Role="Sample" Type="Model1.Store.SampleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SampleDataset">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sample">
+        <PropertyRef Name="SampleDatasetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KeystrokeDatasetKeystroke">
+    <End Role="KeystrokeDataset" Type="Model1.Store.KeystrokeDatasetSet" Multiplicity="0..1" />
+    <End Role="Keystroke" Type="Model1.Store.KeystrokeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeystrokeDataset">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Keystroke">
+        <PropertyRef Name="KeystrokeDatasetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KeyboardKeystroke">
+    <End Role="Keyboard" Type="Model1.Store.KeyboardSet" Multiplicity="0..1" />
+    <End Role="Keystroke" Type="Model1.Store.KeystrokeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Keyboard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Keystroke">
+        <PropertyRef Name="KeyboardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -471,13 +959,267 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Model1" />
-        <Alias Key="Target" Value="Model1.Store" />
-        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="PersonSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Person)">
+        <MappingFragment StoreEntitySet="PersonSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Device)">
+        <MappingFragment StoreEntitySet="DeviceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sample)">
+        <MappingFragment StoreEntitySet="SampleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="SampleTypeId" ColumnName="SampleTypeId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="SampleDatasetId" ColumnName="SampleDatasetId" />
+          <ScalarProperty Name="FullFilePath" ColumnName="FullFilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeystrokeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Keystroke)">
+        <MappingFragment StoreEntitySet="KeystrokeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Success" ColumnName="Success" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PpTime" ColumnName="PpTime" />
+          <ScalarProperty Name="RrTime" ColumnName="RrTime" />
+          <ScalarProperty Name="PrTime" ColumnName="PrTime" />
+          <ScalarProperty Name="RpTime" ColumnName="RpTime" />
+          <ScalarProperty Name="Vector" ColumnName="Vector" />
+          <ScalarProperty Name="TimeToType" ColumnName="TimeToType" />
+          <ScalarProperty Name="RawPress" ColumnName="RawPress" />
+          <ScalarProperty Name="RawRelease" ColumnName="RawRelease" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="KeystrokeDatasetId" ColumnName="KeystrokeDatasetId" />
+          <ScalarProperty Name="KeyboardId" ColumnName="KeyboardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeyboardSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Keyboard)">
+        <MappingFragment StoreEntitySet="KeyboardSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SignatureSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Signature)">
+        <MappingFragment StoreEntitySet="SignatureSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+          <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
+          <ScalarProperty Name="SyntheticTimestamp" ColumnName="SyntheticTimestamp" />
+          <ScalarProperty Name="Penups" ColumnName="Penups" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FingerprintSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Fingerprint)">
+        <MappingFragment StoreEntitySet="FingerprintSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hand" ColumnName="Hand" />
+          <ScalarProperty Name="Finger" ColumnName="Finger" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PalmprintSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Palmprint)">
+        <MappingFragment StoreEntitySet="PalmprintSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hand" ColumnName="Hand" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Face)">
+        <MappingFragment StoreEntitySet="FaceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpeechSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Speech)">
+        <MappingFragment StoreEntitySet="SpeechSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Quality" ColumnName="Quality" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IrisSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Iris)">
+        <MappingFragment StoreEntitySet="IrisSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Eye" ColumnName="Eye" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HandwritingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Handwriting)">
+        <MappingFragment StoreEntitySet="HandwritingSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TextId" ColumnName="TextId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TextSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Text)">
+        <MappingFragment StoreEntitySet="TextSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Language)">
+        <MappingFragment StoreEntitySet="LanguageSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GaitSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Gait)">
+        <MappingFragment StoreEntitySet="GaitSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="FrameNumber" ColumnName="FrameNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceTypeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.DeviceType)">
+        <MappingFragment StoreEntitySet="DeviceTypeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleTypeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SampleType)">
+        <MappingFragment StoreEntitySet="SampleTypeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SampleDatasetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.SampleDataset)">
+        <MappingFragment StoreEntitySet="SampleDatasetSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KeystrokeDatasetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.KeystrokeDataset)">
+        <MappingFragment StoreEntitySet="KeystrokeDatasetSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SampleFingerprint" TypeName="Model1.SampleFingerprint" StoreEntitySet="FingerprintSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Fingerprint">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SamplePalmprint" TypeName="Model1.SamplePalmprint" StoreEntitySet="PalmprintSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Palmprint">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SampleFace" TypeName="Model1.SampleFace" StoreEntitySet="FaceSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Face">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SampleIris" TypeName="Model1.SampleIris" StoreEntitySet="IrisSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Iris">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SampleGait" TypeName="Model1.SampleGait" StoreEntitySet="GaitSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Gait">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SampleSpeech" TypeName="Model1.SampleSpeech" StoreEntitySet="SpeechSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Speech">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SampleHandwriting" TypeName="Model1.SampleHandwriting" StoreEntitySet="HandwritingSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Handwriting">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SignatureSample" TypeName="Model1.SignatureSample" StoreEntitySet="SignatureSet">
+      <EndProperty Name="Sample">
+        <ScalarProperty Name="Id" ColumnName="Sample_Id" />
+      </EndProperty>
+      <EndProperty Name="Signature">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -491,6 +1233,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
