@@ -199,7 +199,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Type" Type="String" Nullable="true" MaxLength="50" />
           <NavigationProperty Name="Keystroke" Relationship="Model1.KeyboardKeystroke" FromRole="Keyboard" ToRole="Keystroke" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="true" />
         </EntityType>
         <EntityType Name="Signature">
           <Key>
@@ -279,7 +279,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Text" Relationship="Model1.LanguageText" FromRole="Language" ToRole="Text" />
-          <Property Name="Name" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
           <Property Name="Code" Type="String" MaxLength="20" Nullable="true" />
         </EntityType>
         <EntityType Name="Gait">
