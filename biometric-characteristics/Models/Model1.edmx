@@ -110,11 +110,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" />
-          <Property Name="LastName" Type="String" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" />
-          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" />
-          <Property Name="Gender" Type="String" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="LastName" Type="String" MaxLength="50" Nullable="true" />
+          <Property Name="Address" Type="String" Nullable="true" MaxLength="200" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="true" />
+          <Property Name="Gender" Type="String" Nullable="true" MaxLength="20" />
           <NavigationProperty Name="Sample" Relationship="Model1.PersonSample" FromRole="Person" ToRole="Sample" />
           <NavigationProperty Name="Keystroke" Relationship="Model1.PersonKeystroke" FromRole="Person" ToRole="Keystroke" />
         </EntityType>
@@ -123,9 +123,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Manufacturer" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Manufacturer" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="200" />
           <NavigationProperty Name="Sample" Relationship="Model1.DeviceSample" FromRole="Device" ToRole="Sample" />
           <NavigationProperty Name="DeviceType" Relationship="Model1.DeviceTypeDevice" FromRole="Device" ToRole="DeviceType" />
           <Property Name="DeviceTypeId" Type="Int32" Nullable="true" />
@@ -136,10 +136,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FilePath" Type="String" Nullable="false" />
-          <Property Name="FileName" Type="String" Nullable="false" />
-          <Property Name="FileType" Type="String" Nullable="false" />
-          <Property Name="DataSet" Type="String" Nullable="false" />
-          <Property Name="DateCreated" Type="String" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="FileType" Type="String" Nullable="false" MaxLength="5" />
+          <Property Name="DateCreated" Type="String" Nullable="true" />
           <NavigationProperty Name="Person" Relationship="Model1.PersonSample" FromRole="Sample" ToRole="Person" />
           <Property Name="PersonId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SampleType" Relationship="Model1.SampleTypeSample" FromRole="Sample" ToRole="SampleType" />
@@ -156,6 +155,7 @@
           <NavigationProperty Name="Signature" Relationship="Model1.SignatureSample" FromRole="Sample" ToRole="Signature" />
           <NavigationProperty Name="SampleDataset" Relationship="Model1.SampleDatasetSample" FromRole="Sample" ToRole="SampleDataset" />
           <Property Name="SampleDatasetId" Type="Int32" Nullable="true" />
+          <Property Name="FullFilePath" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="PersonSample">
           <End Type="Model1.Person" Role="Person" Multiplicity="1" />
@@ -196,8 +196,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Type" Type="String" Nullable="true" MaxLength="50" />
           <NavigationProperty Name="Keystroke" Relationship="Model1.KeyboardKeystroke" FromRole="Keyboard" ToRole="Keystroke" />
           <Property Name="Description" Type="String" Nullable="false" />
         </EntityType>
@@ -207,19 +207,19 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SignatureSample" FromRole="Signature" ToRole="Sample" />
-          <Property Name="XCoordinate" Type="Int32" Nullable="false" />
-          <Property Name="YCoordinate" Type="Int32" Nullable="false" />
-          <Property Name="SyntheticTimestamp" Type="Int32" Nullable="false" />
-          <Property Name="Penups" Type="Boolean" Nullable="false" />
-          <Property Name="Pressure" Type="Int32" Nullable="false" />
+          <Property Name="XCoordinate" Type="Int32" Nullable="true" />
+          <Property Name="YCoordinate" Type="Int32" Nullable="true" />
+          <Property Name="SyntheticTimestamp" Type="Int32" Nullable="true" />
+          <Property Name="Penups" Type="Boolean" Nullable="true" />
+          <Property Name="Pressure" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="Fingerprint">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Hand" Type="String" Nullable="false" />
-          <Property Name="Finger" Type="String" Nullable="false" />
+          <Property Name="Hand" Type="String" Nullable="true" MaxLength="10" />
+          <Property Name="Finger" Type="String" Nullable="true" MaxLength="20" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleFingerprint" FromRole="Fingerprint" ToRole="Sample" />
         </EntityType>
         <EntityType Name="Palmprint">
@@ -228,15 +228,15 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SamplePalmprint" FromRole="Palmprint" ToRole="Sample" />
-          <Property Name="Hand" Type="String" Nullable="false" />
-          <Property Name="Position" Type="String" Nullable="false" />
+          <Property Name="Hand" Type="String" Nullable="true" MaxLength="10" />
+          <Property Name="Position" Type="String" MaxLength="20" Nullable="true" />
         </EntityType>
         <EntityType Name="Face">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Position" Type="String" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="20" Nullable="true" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleFace" FromRole="Face" ToRole="Sample" />
         </EntityType>
         <EntityType Name="Speech">
@@ -245,7 +245,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleSpeech" FromRole="Speech" ToRole="Sample" />
-          <Property Name="Quality" Type="String" Nullable="false" />
+          <Property Name="Quality" Type="String" MaxLength="50" Nullable="true" />
         </EntityType>
         <EntityType Name="Iris">
           <Key>
@@ -253,7 +253,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleIris" FromRole="Iris" ToRole="Sample" />
-          <Property Name="Eye" Type="String" Nullable="false" />
+          <Property Name="Eye" Type="String" Nullable="true" MaxLength="10" />
         </EntityType>
         <EntityType Name="Handwriting">
           <Key>
@@ -279,8 +279,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Text" Relationship="Model1.LanguageText" FromRole="Language" ToRole="Text" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="true" MaxLength="50" />
+          <Property Name="Code" Type="String" MaxLength="20" Nullable="true" />
         </EntityType>
         <EntityType Name="Gait">
           <Key>
@@ -288,16 +288,16 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleGait" FromRole="Gait" ToRole="Sample" />
-          <Property Name="Direction" Type="String" Nullable="false" />
-          <Property Name="FrameNumber" Type="String" Nullable="false" />
+          <Property Name="Direction" Type="String" Nullable="true" MaxLength="20" />
+          <Property Name="FrameNumber" Type="Int32" Nullable="true" />
         </EntityType>
         <EntityType Name="DeviceType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="200" />
           <NavigationProperty Name="Device" Relationship="Model1.DeviceTypeDevice" FromRole="DeviceType" ToRole="Device" />
         </EntityType>
         <EntityType Name="SampleType">
@@ -306,8 +306,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleTypeSample" FromRole="SampleType" ToRole="Sample" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="200" />
         </EntityType>
         <Association Name="SampleTypeSample">
           <End Type="Model1.SampleType" Role="SampleType" Multiplicity="1" />
@@ -419,8 +419,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Sample" Relationship="Model1.SampleDatasetSample" FromRole="SampleDataset" ToRole="Sample" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="String" MaxLength="200" Nullable="true" />
         </EntityType>
         <Association Name="SampleDatasetSample">
           <End Type="Model1.SampleDataset" Role="SampleDataset" Multiplicity="0..1" />
@@ -440,8 +440,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Keystroke" Relationship="Model1.KeystrokeDatasetKeystroke" FromRole="KeystrokeDataset" ToRole="Keystroke" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="200" />
         </EntityType>
         <Association Name="KeystrokeDatasetKeystroke">
           <End Type="Model1.KeystrokeDataset" Role="KeystrokeDataset" Multiplicity="0..1" />

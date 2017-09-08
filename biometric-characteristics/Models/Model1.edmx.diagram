@@ -14,8 +14,8 @@
         <EntityTypeShape EntityType="Model1.Signature" Width="1.5" PointX="0.5" PointY="6.625" />
         <EntityTypeShape EntityType="Model1.Fingerprint" Width="1.5" PointX="11.125" PointY="6" />
         <EntityTypeShape EntityType="Model1.Palmprint" Width="1.5" PointX="11.125" PointY="8.125" />
-        <EntityTypeShape EntityType="Model1.Face" Width="1.5" PointX="9.875" PointY="12.25" />
-        <EntityTypeShape EntityType="Model1.Speech" Width="1.5" PointX="3.25" PointY="12.375" />
+        <EntityTypeShape EntityType="Model1.Face" Width="1.5" PointX="9.625" PointY="12.375" />
+        <EntityTypeShape EntityType="Model1.Speech" Width="1.5" PointX="3.5" PointY="12.375" />
         <EntityTypeShape EntityType="Model1.Iris" Width="1.5" PointX="7.625" PointY="12.375" />
         <EntityTypeShape EntityType="Model1.Handwriting" Width="1.5" PointX="2.625" PointY="8.25" />
         <EntityTypeShape EntityType="Model1.Text" Width="1.5" PointX="0.5" PointY="9.75" />
@@ -29,18 +29,18 @@
         <AssociationConnector Association="Model1.SampleFingerprint" />
         <AssociationConnector Association="Model1.SamplePalmprint" />
         <AssociationConnector Association="Model1.SampleFace" ManuallyRouted="true" >
-          <ConnectorPoint PointX="8.5859823397513413" PointY="9.2494108072916656" />
-          <ConnectorPoint PointX="8.5859823397513413" PointY="10.768460237654526" />
-          <ConnectorPoint PointX="10.725764732592266" PointY="10.768460237654526" />
-          <ConnectorPoint PointX="10.725764732592266" PointY="12.25" />
+          <ConnectorPoint PointX="8.49004392612768" PointY="9.2494108072916639" />
+          <ConnectorPoint PointX="8.49004392612768" PointY="10.83992648553193" />
+          <ConnectorPoint PointX="10.294543155308833" PointY="10.83992648553193" />
+          <ConnectorPoint PointX="10.294543155308833" PointY="12.375" />
         </AssociationConnector>
         <AssociationConnector Association="Model1.SampleIris" />
         <AssociationConnector Association="Model1.SampleGait" />
         <AssociationConnector Association="Model1.SampleSpeech" ManuallyRouted="true" >
-          <ConnectorPoint PointX="5.3697993059190336" PointY="9.2494108072916656" />
-          <ConnectorPoint PointX="5.3697993059190336" PointY="10.71492648553193" />
-          <ConnectorPoint PointX="3.9990486367147362" PointY="10.71492648553193" />
-          <ConnectorPoint PointX="3.9990486367147362" PointY="12.375" />
+          <ConnectorPoint PointX="5.5792854041147217" PointY="9.2494108072916639" />
+          <ConnectorPoint PointX="5.5792854041147217" PointY="10.798260407366804" />
+          <ConnectorPoint PointX="4.260899767049926" PointY="10.798260407366804" />
+          <ConnectorPoint PointX="4.260899767049926" PointY="12.375" />
         </AssociationConnector>
         <AssociationConnector Association="Model1.SampleHandwriting" />
         <AssociationConnector Association="Model1.TextHandwriting" />
