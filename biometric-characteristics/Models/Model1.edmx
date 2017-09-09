@@ -127,7 +127,7 @@
     <Property Name="FilePath" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="FileType" Type="nvarchar" Nullable="false" MaxLength="5" />
-    <Property Name="DateCreated" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DateCreated" Type="datetime" Nullable="true" />
     <Property Name="PersonId" Type="int" Nullable="false" />
     <Property Name="SampleTypeId" Type="int" Nullable="false" />
     <Property Name="DeviceId" Type="int" Nullable="true" />
@@ -230,6 +230,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LanguageId" Type="int" Nullable="true" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="LanguageSet">
     <Key>
@@ -626,7 +627,7 @@
           <Property Name="FilePath" Type="String" Nullable="false" />
           <Property Name="FileName" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="FileType" Type="String" Nullable="false" MaxLength="5" />
-          <Property Name="DateCreated" Type="String" Nullable="true" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="true" />
           <NavigationProperty Name="Person" Relationship="Model1.PersonSample" FromRole="Sample" ToRole="Person" />
           <Property Name="PersonId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SampleType" Relationship="Model1.SampleTypeSample" FromRole="Sample" ToRole="SampleType" />
@@ -760,6 +761,7 @@
           <NavigationProperty Name="Handwriting" Relationship="Model1.TextHandwriting" FromRole="Text" ToRole="Handwriting" />
           <NavigationProperty Name="Language" Relationship="Model1.LanguageText" FromRole="Text" ToRole="Language" />
           <Property Name="LanguageId" Type="Int32" Nullable="true" />
+          <Property Name="Content" Type="String" Nullable="true" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
@@ -1097,6 +1099,7 @@
         <MappingFragment StoreEntitySet="TextSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

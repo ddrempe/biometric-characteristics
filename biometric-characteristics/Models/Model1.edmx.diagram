@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b7fae70223b24c2ea7cd8ba9002fab9c" Name="Diagram1" ZoomLevel="63" DisplayType="true" >
+      <Diagram DiagramId="b7fae70223b24c2ea7cd8ba9002fab9c" Name="Diagram1" ZoomLevel="72" DisplayType="true" >
         <EntityTypeShape EntityType="Model1.Person" Width="2" PointX="6.625" PointY="0.625" />
         <EntityTypeShape EntityType="Model1.Device" Width="1.875" PointX="9.375" PointY="0.625" />
         <EntityTypeShape EntityType="Model1.Sample" Width="3.625" PointX="7" PointY="4.125" />
@@ -29,18 +29,18 @@
         <AssociationConnector Association="Model1.SampleFingerprint" />
         <AssociationConnector Association="Model1.SamplePalmprint" />
         <AssociationConnector Association="Model1.SampleFace" ManuallyRouted="true" >
-          <ConnectorPoint PointX="10.339310059966538" PointY="9.3744108072916656" />
-          <ConnectorPoint PointX="10.339310059966538" PointY="10.955687738580206" />
-          <ConnectorPoint PointX="12.285369192807718" PointY="10.955687738580206" />
-          <ConnectorPoint PointX="12.285369192807718" PointY="12.5" />
+          <ConnectorPoint PointX="10.50492723155504" PointY="9.3744108072916656" />
+          <ConnectorPoint PointX="10.50492723155504" PointY="11.25983844437623" />
+          <ConnectorPoint PointX="12.079025696344193" PointY="11.25983844437623" />
+          <ConnectorPoint PointX="12.079025696344193" PointY="12.5" />
         </AssociationConnector>
         <AssociationConnector Association="Model1.SampleIris" />
         <AssociationConnector Association="Model1.SampleGait" />
         <AssociationConnector Association="Model1.SampleSpeech" ManuallyRouted="true" >
-          <ConnectorPoint PointX="7.294980359604299" PointY="9.3744108072916656" />
-          <ConnectorPoint PointX="7.294980359604299" PointY="10.866732711924946" />
-          <ConnectorPoint PointX="5.4120138270853309" PointY="10.866732711924946" />
-          <ConnectorPoint PointX="5.4120138270853309" PointY="12.5" />
+          <ConnectorPoint PointX="7.4410300224314634" PointY="9.3744108072916656" />
+          <ConnectorPoint PointX="7.4410300224314634" PointY="11.241319929077099" />
+          <ConnectorPoint PointX="5.38976456439212" PointY="11.241319929077099" />
+          <ConnectorPoint PointX="5.38976456439212" PointY="12.5" />
         </AssociationConnector>
         <AssociationConnector Association="Model1.SampleHandwriting" />
         <AssociationConnector Association="Model1.TextHandwriting" />

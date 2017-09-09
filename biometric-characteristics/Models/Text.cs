@@ -22,6 +22,7 @@ namespace biometric_characteristics.Models
     
         public int Id { get; set; }
         public Nullable<int> LanguageId { get; set; }
+        public string Content { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Handwriting> Handwriting { get; set; }

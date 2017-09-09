@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/08/2017 15:04:23
+-- Date Created: 09/09/2017 23:10:52
 -- Generated from EDMX file: C:\Users\ddrempetic\Documents\SourceTree\biometric-characteristics\biometric-characteristics\Models\Model1.edmx
 -- --------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE [dbo].[SampleSet] (
     [FilePath] nvarchar(max)  NOT NULL,
     [FileName] nvarchar(200)  NOT NULL,
     [FileType] nvarchar(5)  NOT NULL,
-    [DateCreated] nvarchar(max)  NULL,
+    [DateCreated] datetime  NULL,
     [PersonId] int  NOT NULL,
     [SampleTypeId] int  NOT NULL,
     [DeviceId] int  NULL,
@@ -267,7 +267,8 @@ GO
 -- Creating table 'TextSet'
 CREATE TABLE [dbo].[TextSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [LanguageId] int  NULL
+    [LanguageId] int  NULL,
+    [Content] nvarchar(max)  NULL
 );
 GO
 

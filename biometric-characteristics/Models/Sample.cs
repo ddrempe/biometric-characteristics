@@ -18,7 +18,7 @@ namespace biometric_characteristics.Models
         public string FilePath { get; set; }
         public string FileName { get; set; }
         public string FileType { get; set; }
-        public string DateCreated { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
         public int PersonId { get; set; }
         public int SampleTypeId { get; set; }
         public Nullable<int> DeviceId { get; set; }
