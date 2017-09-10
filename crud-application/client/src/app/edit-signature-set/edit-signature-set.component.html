@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12">
+    <rz-form #form0 [data]="signatureset" name="form0" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+      <rz-boolean-form-field property="Penups" [required]="false" title="Penups" type="boolean">
+      </rz-boolean-form-field>
+      <rz-integer-form-field property="Pressure" [required]="false" title="Pressure" type="integer">
+      </rz-integer-form-field>
+      <rz-integer-form-field property="SyntheticTimestamp" [required]="false" title="Synthetic Timestamp" type="integer">
+      </rz-integer-form-field>
+      <rz-integer-form-field property="XCoordinate" [required]="false" title="X Coordinate" type="integer">
+      </rz-integer-form-field>
+      <rz-integer-form-field property="YCoordinate" [required]="false" title="Y Coordinate" type="integer">
+      </rz-integer-form-field>
+      <rz-lookup-form-field [data]="getSampleSetsResult" property="Sample_Id" [required]="true" textProperty="FilePath" title="Sample Set" valueProperty="Id" placeholder="Choose SampleSet" type="lookup">
+      </rz-lookup-form-field>
+    </rz-form>
+  </div>
+</div>
+<rz-notification [messages]="messages"></rz-notification>

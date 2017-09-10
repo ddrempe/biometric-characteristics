@@ -1,0 +1,80 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new TextSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createTextSet",
+            "parameters": [
+              {
+                "name": "TextSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "text-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Content",
+          "required": false,
+          "title": "Content",
+          "type": "string"
+        },
+        {
+          "data": "${getLanguageSetsResult}",
+          "property": "LanguageId",
+          "required": false,
+          "textProperty": "Name",
+          "title": "Language Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose LanguageSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getLanguageSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getLanguageSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Text Set"
+}

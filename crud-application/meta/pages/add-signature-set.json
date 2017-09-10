@@ -1,0 +1,104 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new SignatureSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createSignatureSet",
+            "parameters": [
+              {
+                "name": "SignatureSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "signature-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Penups",
+          "required": false,
+          "title": "Penups",
+          "type": "boolean"
+        },
+        {
+          "property": "Pressure",
+          "required": false,
+          "title": "Pressure",
+          "type": "integer"
+        },
+        {
+          "property": "SyntheticTimestamp",
+          "required": false,
+          "title": "Synthetic Timestamp",
+          "type": "integer"
+        },
+        {
+          "property": "XCoordinate",
+          "required": false,
+          "title": "X Coordinate",
+          "type": "integer"
+        },
+        {
+          "property": "YCoordinate",
+          "required": false,
+          "title": "Y Coordinate",
+          "type": "integer"
+        },
+        {
+          "data": "${getSampleSetsResult}",
+          "property": "Sample_Id",
+          "required": true,
+          "textProperty": "FilePath",
+          "title": "Sample Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose SampleSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getSampleSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSampleSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Signature Set"
+}

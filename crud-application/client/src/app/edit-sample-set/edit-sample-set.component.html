@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12">
+    <rz-form #form0 [data]="sampleset" name="form0" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+      <rz-date-form-field property="DateCreated" [required]="false" title="Date Created" type="date">
+      </rz-date-form-field>
+      <rz-string-form-field property="FileName" [required]="true" title="File Name" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="FilePath" [required]="true" title="File Path" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="FileType" [required]="true" title="File Type" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="FullFilePath" [required]="true" title="Full File Path" type="string">
+      </rz-string-form-field>
+      <rz-lookup-form-field [data]="getDeviceSetsResult" property="DeviceId" [required]="false" textProperty="Name" title="Device Set" valueProperty="Id" placeholder="Choose DeviceSet" type="lookup">
+      </rz-lookup-form-field>
+      <rz-lookup-form-field [data]="getPersonSetsResult" property="PersonId" [required]="true" textProperty="FirstName" title="Person Set" valueProperty="Id" placeholder="Choose PersonSet" type="lookup">
+      </rz-lookup-form-field>
+      <rz-lookup-form-field [data]="getSampleDatasetSetsResult" property="SampleDatasetId" [required]="false" textProperty="Name" title="Sample Dataset Set" valueProperty="Id" placeholder="Choose SampleDatasetSet" type="lookup">
+      </rz-lookup-form-field>
+      <rz-lookup-form-field [data]="getSampleTypeSetsResult" property="SampleTypeId" [required]="true" textProperty="Name" title="Sample Type Set" valueProperty="Id" placeholder="Choose SampleTypeSet" type="lookup">
+      </rz-lookup-form-field>
+    </rz-form>
+  </div>
+</div>
+<rz-notification [messages]="messages"></rz-notification>

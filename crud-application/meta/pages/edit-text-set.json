@@ -1,0 +1,101 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "${textset}",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to update TextSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.updateTextSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${parameters.Id}"
+              },
+              {
+                "name": "TextSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "text-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Content",
+          "required": false,
+          "title": "Content",
+          "type": "string"
+        },
+        {
+          "data": "${getLanguageSetsResult}",
+          "property": "LanguageId",
+          "required": false,
+          "textProperty": "Name",
+          "title": "Language Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose LanguageSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getTextSetById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "${parameters.Id}"
+          }
+        ],
+        "then": [
+          {
+            "name": "textset",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getLanguageSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getLanguageSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Text Set"
+}

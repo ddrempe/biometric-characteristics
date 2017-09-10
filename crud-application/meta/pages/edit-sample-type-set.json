@@ -1,0 +1,85 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "${sampletypeset}",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to update SampleTypeSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.updateSampleTypeSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${parameters.Id}"
+              },
+              {
+                "name": "SampleTypeSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "sample-type-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Description",
+          "required": false,
+          "title": "Description",
+          "type": "string"
+        },
+        {
+          "property": "Name",
+          "required": true,
+          "title": "Name",
+          "type": "string"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getSampleTypeSetById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "${parameters.Id}"
+          }
+        ],
+        "then": [
+          {
+            "name": "sampletypeset",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Sample Type Set"
+}

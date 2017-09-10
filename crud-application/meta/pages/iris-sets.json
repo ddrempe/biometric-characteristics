@@ -1,0 +1,169 @@
+{
+  "components": [
+    {
+      "name": "grid0",
+      "allowDelete": true,
+      "allowAdd": true,
+      "allowFiltering": true,
+      "allowMultiSorting": false,
+      "allowPaging": true,
+      "allowSorting": true,
+      "col": 12,
+      "count": "${getIrisSetsCount}",
+      "data": "${getIrisSetsResult}",
+      "events": {
+        "loadData": [
+          {
+            "name": "biometric characteristics model.getIrisSets",
+            "parameters": [
+              {
+                "name": "$filter",
+                "value": "${event.filter}"
+              },
+              {
+                "name": "$top",
+                "value": "this.grid0.allowPaging ? event.top : null"
+              },
+              {
+                "name": "$skip",
+                "value": "this.grid0.allowPaging ? event.skip : null"
+              },
+              {
+                "name": "$orderby",
+                "value": "${event.orderby}"
+              },
+              {
+                "name": "$count",
+                "value": "this.grid0.allowPaging"
+              },
+              {
+                "name": "$expand",
+                "value": "SampleSet"
+              }
+            ],
+            "then": [
+              {
+                "name": "getIrisSetsResult",
+                "type": "set",
+                "value": "${result.value}"
+              },
+              {
+                "name": "getIrisSetsCount",
+                "type": "set",
+                "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete IrisSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteIrisSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "IrisSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "select": [
+          {
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "path": "edit-iris-set",
+            "type": "popup"
+          }
+        ],
+        "add": [
+          {
+            "path": "add-iris-set",
+            "type": "popup"
+          }
+        ]
+      },
+      "row": 0,
+      "section": null,
+      "title": "",
+      "columns": [
+        {
+          "property": "Eye",
+          "title": "Eye",
+          "type": "string"
+        },
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "Sample_Id",
+          "template": "${data.SampleSet?.FilePath}",
+          "title": "Sample Set",
+          "type": "integer"
+        }
+      ],
+      "type": "grid"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getIrisSets",
+        "parameters": [
+          {
+            "name": "$top",
+            "value": "this.grid0.allowPaging ? this.grid0.pageSize : null"
+          },
+          {
+            "name": "$skip",
+            "value": "this.grid0.allowPaging ? 0 : null"
+          },
+          {
+            "name": "$count",
+            "value": "this.grid0.allowPaging"
+          },
+          {
+            "name": "$expand",
+            "value": "SampleSet"
+          }
+        ],
+        "then": [
+          {
+            "name": "getIrisSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          },
+          {
+            "name": "getIrisSetsCount",
+            "type": "set",
+            "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Iris Sets"
+}

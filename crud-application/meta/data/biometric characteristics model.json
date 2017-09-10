@@ -1,0 +1,3639 @@
+{
+  "basePath": "/odata/BiometricCharacteristicsModel",
+  "definitions": {
+    "DeviceSet": {
+      "properties": {
+        "Description": {
+          "type": "string",
+          "x-key": false
+        },
+        "DeviceTypeId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "DeviceTypeSet",
+            "parentEntityType": "DeviceTypeSet",
+            "parentTable": "DeviceTypeSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "DeviceTypeSet"
+          },
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "DeviceSet",
+              "name": "SampleSets",
+              "type": "SampleSet"
+            }
+          ]
+        },
+        "Manufacturer": {
+          "type": "string",
+          "x-key": false
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "DeviceSets",
+      "x-table": "dbo.DeviceSet"
+    },
+    "DeviceTypeSet": {
+      "properties": {
+        "Description": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "DeviceTypeSet",
+              "name": "DeviceSets",
+              "type": "DeviceSet"
+            }
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "DeviceTypeSets",
+      "x-table": "dbo.DeviceTypeSet"
+    },
+    "FaceSet": {
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Position": {
+          "type": "string",
+          "x-key": false
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "FaceSets",
+      "x-table": "dbo.FaceSet"
+    },
+    "FingerprintSet": {
+      "properties": {
+        "Finger": {
+          "type": "string",
+          "x-key": false
+        },
+        "Hand": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "FingerprintSets",
+      "x-table": "dbo.FingerprintSet"
+    },
+    "GaitSet": {
+      "properties": {
+        "Direction": {
+          "type": "string",
+          "x-key": false
+        },
+        "FrameNumber": {
+          "type": "integer",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "GaitSets",
+      "x-table": "dbo.GaitSet"
+    },
+    "HandwritingSet": {
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        },
+        "TextId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "TextSet",
+            "parentEntityType": "TextSet",
+            "parentTable": "TextSets",
+            "principalKey": "Id",
+            "textProperty": "Content",
+            "type": "TextSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "HandwritingSets",
+      "x-table": "dbo.HandwritingSet"
+    },
+    "IrisSet": {
+      "properties": {
+        "Eye": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "IrisSets",
+      "x-table": "dbo.IrisSet"
+    },
+    "KeyboardSet": {
+      "properties": {
+        "Description": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "KeyboardSet",
+              "name": "KeystrokeSets",
+              "type": "KeystrokeSet"
+            }
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        },
+        "Type": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "KeyboardSets",
+      "x-table": "dbo.KeyboardSet"
+    },
+    "KeystrokeDatasetSet": {
+      "properties": {
+        "Description": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "KeystrokeDatasetSet",
+              "name": "KeystrokeSets",
+              "type": "KeystrokeSet"
+            }
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "KeystrokeDatasetSets",
+      "x-table": "dbo.KeystrokeDatasetSet"
+    },
+    "KeystrokeSet": {
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "KeyboardId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "KeyboardSet",
+            "parentEntityType": "KeyboardSet",
+            "parentTable": "KeyboardSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "KeyboardSet"
+          },
+          "x-key": false
+        },
+        "KeystrokeDatasetId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "KeystrokeDatasetSet",
+            "parentEntityType": "KeystrokeDatasetSet",
+            "parentTable": "KeystrokeDatasetSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "KeystrokeDatasetSet"
+          },
+          "x-key": false
+        },
+        "Password": {
+          "type": "string",
+          "x-key": false
+        },
+        "PersonId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "PersonSet",
+            "parentEntityType": "PersonSet",
+            "parentTable": "PersonSets",
+            "principalKey": "Id",
+            "textProperty": "FirstName",
+            "type": "PersonSet"
+          },
+          "x-key": false
+        },
+        "PpTime": {
+          "type": "string",
+          "x-key": false
+        },
+        "PrTime": {
+          "type": "string",
+          "x-key": false
+        },
+        "RawPress": {
+          "type": "string",
+          "x-key": false
+        },
+        "RawRelease": {
+          "type": "string",
+          "x-key": false
+        },
+        "RpTime": {
+          "type": "string",
+          "x-key": false
+        },
+        "RrTime": {
+          "type": "string",
+          "x-key": false
+        },
+        "Success": {
+          "type": "boolean",
+          "x-key": false
+        },
+        "TimeToType": {
+          "type": "string",
+          "x-key": false
+        },
+        "Vector": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Success",
+        "Password",
+        "PpTime",
+        "RrTime",
+        "PrTime",
+        "RpTime",
+        "Vector",
+        "TimeToType",
+        "RawPress",
+        "RawRelease",
+        "PersonId"
+      ],
+      "resource": "KeystrokeSets",
+      "x-table": "dbo.KeystrokeSet"
+    },
+    "LanguageSet": {
+      "properties": {
+        "Code": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "LanguageSet",
+              "name": "TextSets",
+              "type": "TextSet"
+            }
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "LanguageSets",
+      "x-table": "dbo.LanguageSet"
+    },
+    "PalmprintSet": {
+      "properties": {
+        "Hand": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Position": {
+          "type": "string",
+          "x-key": false
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "PalmprintSets",
+      "x-table": "dbo.PalmprintSet"
+    },
+    "PersonSet": {
+      "properties": {
+        "Address": {
+          "type": "string",
+          "x-key": false
+        },
+        "DateOfBirth": {
+          "format": "date-time",
+          "type": "string",
+          "x-key": false
+        },
+        "FirstName": {
+          "type": "string",
+          "x-key": false
+        },
+        "Gender": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "PersonSet",
+              "name": "SampleSets",
+              "type": "SampleSet"
+            },
+            {
+              "inversePropertyName": "PersonSet",
+              "name": "KeystrokeSets",
+              "type": "KeystrokeSet"
+            }
+          ]
+        },
+        "LastName": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "resource": "PersonSets",
+      "x-table": "dbo.PersonSet"
+    },
+    "SampleDatasetSet": {
+      "properties": {
+        "Description": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "SampleDatasetSet",
+              "name": "SampleSets",
+              "type": "SampleSet"
+            }
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "SampleDatasetSets",
+      "x-table": "dbo.SampleDatasetSet"
+    },
+    "SampleSet": {
+      "properties": {
+        "DateCreated": {
+          "format": "date-time",
+          "type": "string",
+          "x-key": false
+        },
+        "DeviceId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "DeviceSet",
+            "parentEntityType": "DeviceSet",
+            "parentTable": "DeviceSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "DeviceSet"
+          },
+          "x-key": false
+        },
+        "FileName": {
+          "type": "string",
+          "x-key": false
+        },
+        "FilePath": {
+          "type": "string",
+          "x-key": false
+        },
+        "FileType": {
+          "type": "string",
+          "x-key": false
+        },
+        "FullFilePath": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "HandwritingSets",
+              "type": "HandwritingSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "FingerprintSets",
+              "type": "FingerprintSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "PalmprintSets",
+              "type": "PalmprintSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "FaceSets",
+              "type": "FaceSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "IrisSets",
+              "type": "IrisSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "GaitSets",
+              "type": "GaitSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "SpeechSets",
+              "type": "SpeechSet"
+            },
+            {
+              "inversePropertyName": "SampleSet",
+              "name": "SignatureSets",
+              "type": "SignatureSet"
+            }
+          ]
+        },
+        "PersonId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "PersonSet",
+            "parentEntityType": "PersonSet",
+            "parentTable": "PersonSets",
+            "principalKey": "Id",
+            "textProperty": "FirstName",
+            "type": "PersonSet"
+          },
+          "x-key": false
+        },
+        "SampleDatasetId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleDatasetSet",
+            "parentEntityType": "SampleDatasetSet",
+            "parentTable": "SampleDatasetSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "SampleDatasetSet"
+          },
+          "x-key": false
+        },
+        "SampleTypeId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleTypeSet",
+            "parentEntityType": "SampleTypeSet",
+            "parentTable": "SampleTypeSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "SampleTypeSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "FilePath",
+        "FileName",
+        "FileType",
+        "PersonId",
+        "SampleTypeId",
+        "FullFilePath"
+      ],
+      "resource": "SampleSets",
+      "x-table": "dbo.SampleSet"
+    },
+    "SampleTypeSet": {
+      "properties": {
+        "Description": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "SampleTypeSet",
+              "name": "SampleSets",
+              "type": "SampleSet"
+            }
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Name"
+      ],
+      "resource": "SampleTypeSets",
+      "x-table": "dbo.SampleTypeSet"
+    },
+    "SignatureSet": {
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Penups": {
+          "type": "boolean",
+          "x-key": false
+        },
+        "Pressure": {
+          "type": "integer",
+          "x-key": false
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        },
+        "SyntheticTimestamp": {
+          "type": "integer",
+          "x-key": false
+        },
+        "XCoordinate": {
+          "type": "integer",
+          "x-key": false
+        },
+        "YCoordinate": {
+          "type": "integer",
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "SignatureSets",
+      "x-table": "dbo.SignatureSet"
+    },
+    "SpeechSet": {
+      "properties": {
+        "Id": {
+          "type": "integer",
+          "x-key": true
+        },
+        "Quality": {
+          "type": "string",
+          "x-key": false
+        },
+        "Sample_Id": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "SampleSet",
+            "parentEntityType": "SampleSet",
+            "parentTable": "SampleSets",
+            "principalKey": "Id",
+            "textProperty": "FilePath",
+            "type": "SampleSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id",
+        "Sample_Id"
+      ],
+      "resource": "SpeechSets",
+      "x-table": "dbo.SpeechSet"
+    },
+    "TextSet": {
+      "properties": {
+        "Content": {
+          "type": "string",
+          "x-key": false
+        },
+        "Id": {
+          "type": "integer",
+          "x-key": true,
+          "x-navigation": [
+            {
+              "inversePropertyName": "TextSet",
+              "name": "HandwritingSets",
+              "type": "HandwritingSet"
+            }
+          ]
+        },
+        "LanguageId": {
+          "type": "integer",
+          "x-foreignKey": {
+            "name": "LanguageSet",
+            "parentEntityType": "LanguageSet",
+            "parentTable": "LanguageSets",
+            "principalKey": "Id",
+            "textProperty": "Name",
+            "type": "LanguageSet"
+          },
+          "x-key": false
+        }
+      },
+      "required": [
+        "Id"
+      ],
+      "resource": "TextSets",
+      "x-table": "dbo.TextSet"
+    }
+  },
+  "host": "localhost:5000",
+  "info": {
+    "title": "biometric characteristics model",
+    "x-connector": "mssql",
+    "x-type": "odata"
+  },
+  "paths": {
+    "/DeviceSets": {
+      "get": {
+        "operationId": "getDeviceSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/DeviceSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createDeviceSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "DeviceSet",
+            "schema": {
+              "$ref": "#/definitions/DeviceSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/DeviceSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/DeviceSets({Id})": {
+      "delete": {
+        "operationId": "deleteDeviceSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getDeviceSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/DeviceSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateDeviceSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "DeviceSet",
+            "schema": {
+              "$ref": "#/definitions/DeviceSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/DeviceTypeSets": {
+      "get": {
+        "operationId": "getDeviceTypeSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/DeviceTypeSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createDeviceTypeSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "DeviceTypeSet",
+            "schema": {
+              "$ref": "#/definitions/DeviceTypeSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/DeviceTypeSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/DeviceTypeSets({Id})": {
+      "delete": {
+        "operationId": "deleteDeviceTypeSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getDeviceTypeSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/DeviceTypeSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateDeviceTypeSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "DeviceTypeSet",
+            "schema": {
+              "$ref": "#/definitions/DeviceTypeSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/FaceSets": {
+      "get": {
+        "operationId": "getFaceSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/FaceSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createFaceSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "FaceSet",
+            "schema": {
+              "$ref": "#/definitions/FaceSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/FaceSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/FaceSets({Id})": {
+      "delete": {
+        "operationId": "deleteFaceSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getFaceSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/FaceSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateFaceSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "FaceSet",
+            "schema": {
+              "$ref": "#/definitions/FaceSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/FingerprintSets": {
+      "get": {
+        "operationId": "getFingerprintSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/FingerprintSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createFingerprintSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "FingerprintSet",
+            "schema": {
+              "$ref": "#/definitions/FingerprintSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/FingerprintSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/FingerprintSets({Id})": {
+      "delete": {
+        "operationId": "deleteFingerprintSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getFingerprintSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/FingerprintSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateFingerprintSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "FingerprintSet",
+            "schema": {
+              "$ref": "#/definitions/FingerprintSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/GaitSets": {
+      "get": {
+        "operationId": "getGaitSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/GaitSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createGaitSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "GaitSet",
+            "schema": {
+              "$ref": "#/definitions/GaitSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/GaitSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/GaitSets({Id})": {
+      "delete": {
+        "operationId": "deleteGaitSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getGaitSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/GaitSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateGaitSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "GaitSet",
+            "schema": {
+              "$ref": "#/definitions/GaitSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/HandwritingSets": {
+      "get": {
+        "operationId": "getHandwritingSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/HandwritingSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createHandwritingSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "HandwritingSet",
+            "schema": {
+              "$ref": "#/definitions/HandwritingSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/HandwritingSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/HandwritingSets({Id})": {
+      "delete": {
+        "operationId": "deleteHandwritingSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getHandwritingSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/HandwritingSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateHandwritingSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "HandwritingSet",
+            "schema": {
+              "$ref": "#/definitions/HandwritingSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/IrisSets": {
+      "get": {
+        "operationId": "getIrisSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/IrisSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createIrisSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "IrisSet",
+            "schema": {
+              "$ref": "#/definitions/IrisSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/IrisSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/IrisSets({Id})": {
+      "delete": {
+        "operationId": "deleteIrisSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getIrisSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/IrisSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateIrisSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "IrisSet",
+            "schema": {
+              "$ref": "#/definitions/IrisSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/KeyboardSets": {
+      "get": {
+        "operationId": "getKeyboardSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/KeyboardSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createKeyboardSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "KeyboardSet",
+            "schema": {
+              "$ref": "#/definitions/KeyboardSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/KeyboardSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/KeyboardSets({Id})": {
+      "delete": {
+        "operationId": "deleteKeyboardSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getKeyboardSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/KeyboardSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateKeyboardSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "KeyboardSet",
+            "schema": {
+              "$ref": "#/definitions/KeyboardSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/KeystrokeDatasetSets": {
+      "get": {
+        "operationId": "getKeystrokeDatasetSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/KeystrokeDatasetSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createKeystrokeDatasetSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "KeystrokeDatasetSet",
+            "schema": {
+              "$ref": "#/definitions/KeystrokeDatasetSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/KeystrokeDatasetSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/KeystrokeDatasetSets({Id})": {
+      "delete": {
+        "operationId": "deleteKeystrokeDatasetSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getKeystrokeDatasetSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/KeystrokeDatasetSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateKeystrokeDatasetSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "KeystrokeDatasetSet",
+            "schema": {
+              "$ref": "#/definitions/KeystrokeDatasetSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/KeystrokeSets": {
+      "get": {
+        "operationId": "getKeystrokeSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/KeystrokeSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createKeystrokeSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "KeystrokeSet",
+            "schema": {
+              "$ref": "#/definitions/KeystrokeSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/KeystrokeSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/KeystrokeSets({Id})": {
+      "delete": {
+        "operationId": "deleteKeystrokeSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getKeystrokeSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/KeystrokeSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateKeystrokeSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "KeystrokeSet",
+            "schema": {
+              "$ref": "#/definitions/KeystrokeSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/LanguageSets": {
+      "get": {
+        "operationId": "getLanguageSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/LanguageSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createLanguageSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "LanguageSet",
+            "schema": {
+              "$ref": "#/definitions/LanguageSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/LanguageSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/LanguageSets({Id})": {
+      "delete": {
+        "operationId": "deleteLanguageSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getLanguageSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/LanguageSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateLanguageSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "LanguageSet",
+            "schema": {
+              "$ref": "#/definitions/LanguageSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/PalmprintSets": {
+      "get": {
+        "operationId": "getPalmprintSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/PalmprintSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createPalmprintSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "PalmprintSet",
+            "schema": {
+              "$ref": "#/definitions/PalmprintSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/PalmprintSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/PalmprintSets({Id})": {
+      "delete": {
+        "operationId": "deletePalmprintSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getPalmprintSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PalmprintSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updatePalmprintSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "PalmprintSet",
+            "schema": {
+              "$ref": "#/definitions/PalmprintSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/PersonSets": {
+      "get": {
+        "operationId": "getPersonSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/PersonSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createPersonSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "PersonSet",
+            "schema": {
+              "$ref": "#/definitions/PersonSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/PersonSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/PersonSets({Id})": {
+      "delete": {
+        "operationId": "deletePersonSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getPersonSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PersonSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updatePersonSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "PersonSet",
+            "schema": {
+              "$ref": "#/definitions/PersonSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SampleDatasetSets": {
+      "get": {
+        "operationId": "getSampleDatasetSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/SampleDatasetSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createSampleDatasetSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SampleDatasetSet",
+            "schema": {
+              "$ref": "#/definitions/SampleDatasetSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/SampleDatasetSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SampleDatasetSets({Id})": {
+      "delete": {
+        "operationId": "deleteSampleDatasetSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getSampleDatasetSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SampleDatasetSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateSampleDatasetSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "SampleDatasetSet",
+            "schema": {
+              "$ref": "#/definitions/SampleDatasetSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SampleSets": {
+      "get": {
+        "operationId": "getSampleSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/SampleSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createSampleSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SampleSet",
+            "schema": {
+              "$ref": "#/definitions/SampleSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/SampleSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SampleSets({Id})": {
+      "delete": {
+        "operationId": "deleteSampleSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getSampleSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SampleSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateSampleSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "SampleSet",
+            "schema": {
+              "$ref": "#/definitions/SampleSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SampleTypeSets": {
+      "get": {
+        "operationId": "getSampleTypeSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/SampleTypeSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createSampleTypeSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SampleTypeSet",
+            "schema": {
+              "$ref": "#/definitions/SampleTypeSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/SampleTypeSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SampleTypeSets({Id})": {
+      "delete": {
+        "operationId": "deleteSampleTypeSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getSampleTypeSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SampleTypeSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateSampleTypeSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "SampleTypeSet",
+            "schema": {
+              "$ref": "#/definitions/SampleTypeSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SignatureSets": {
+      "get": {
+        "operationId": "getSignatureSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/SignatureSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createSignatureSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SignatureSet",
+            "schema": {
+              "$ref": "#/definitions/SignatureSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/SignatureSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SignatureSets({Id})": {
+      "delete": {
+        "operationId": "deleteSignatureSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getSignatureSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SignatureSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateSignatureSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "SignatureSet",
+            "schema": {
+              "$ref": "#/definitions/SignatureSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SpeechSets": {
+      "get": {
+        "operationId": "getSpeechSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/SpeechSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createSpeechSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "SpeechSet",
+            "schema": {
+              "$ref": "#/definitions/SpeechSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/SpeechSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/SpeechSets({Id})": {
+      "delete": {
+        "operationId": "deleteSpeechSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getSpeechSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SpeechSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateSpeechSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "SpeechSet",
+            "schema": {
+              "$ref": "#/definitions/SpeechSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TextSets": {
+      "get": {
+        "operationId": "getTextSets",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "$filter",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$top",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$skip",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "$orderby",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "$count",
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "$expand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "properties": {
+                "value": {
+                  "items": {
+                    "$ref": "#/definitions/TextSet"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createTextSet",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TextSet",
+            "schema": {
+              "$ref": "#/definitions/TextSet"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "$ref": "#/definitions/TextSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/TextSets({Id})": {
+      "delete": {
+        "operationId": "deleteTextSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getTextSetById",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/TextSet"
+            }
+          },
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTextSet",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Id",
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "TextSet",
+            "schema": {
+              "$ref": "#/definitions/TextSet"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "default": {
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "schemes": [
+    "http"
+  ]
+}

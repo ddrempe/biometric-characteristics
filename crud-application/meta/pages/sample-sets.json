@@ -1,0 +1,209 @@
+{
+  "components": [
+    {
+      "name": "grid0",
+      "allowDelete": true,
+      "allowAdd": true,
+      "allowFiltering": true,
+      "allowMultiSorting": false,
+      "allowPaging": true,
+      "allowSorting": true,
+      "col": 12,
+      "count": "${getSampleSetsCount}",
+      "data": "${getSampleSetsResult}",
+      "events": {
+        "loadData": [
+          {
+            "name": "biometric characteristics model.getSampleSets",
+            "parameters": [
+              {
+                "name": "$filter",
+                "value": "${event.filter}"
+              },
+              {
+                "name": "$top",
+                "value": "this.grid0.allowPaging ? event.top : null"
+              },
+              {
+                "name": "$skip",
+                "value": "this.grid0.allowPaging ? event.skip : null"
+              },
+              {
+                "name": "$orderby",
+                "value": "${event.orderby}"
+              },
+              {
+                "name": "$count",
+                "value": "this.grid0.allowPaging"
+              },
+              {
+                "name": "$expand",
+                "value": "DeviceSet,PersonSet,SampleDatasetSet,SampleTypeSet"
+              }
+            ],
+            "then": [
+              {
+                "name": "getSampleSetsResult",
+                "type": "set",
+                "value": "${result.value}"
+              },
+              {
+                "name": "getSampleSetsCount",
+                "type": "set",
+                "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete SampleSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteSampleSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "SampleSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "select": [
+          {
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "path": "edit-sample-set",
+            "type": "popup"
+          }
+        ],
+        "add": [
+          {
+            "path": "add-sample-set",
+            "type": "popup"
+          }
+        ]
+      },
+      "row": 0,
+      "section": null,
+      "title": "",
+      "columns": [
+        {
+          "format": "date-time",
+          "property": "DateCreated",
+          "template": "${data.DateCreated | utcDate}",
+          "title": "Date Created",
+          "type": "string"
+        },
+        {
+          "property": "DeviceId",
+          "template": "${data.DeviceSet?.Name}",
+          "title": "Device Set",
+          "type": "integer"
+        },
+        {
+          "property": "FileName",
+          "title": "File Name",
+          "type": "string"
+        },
+        {
+          "property": "FilePath",
+          "title": "File Path",
+          "type": "string"
+        },
+        {
+          "property": "FileType",
+          "title": "File Type",
+          "type": "string"
+        },
+        {
+          "property": "FullFilePath",
+          "title": "Full File Path",
+          "type": "string"
+        },
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "PersonId",
+          "template": "${data.PersonSet?.FirstName}",
+          "title": "Person Set",
+          "type": "integer"
+        },
+        {
+          "property": "SampleDatasetId",
+          "template": "${data.SampleDatasetSet?.Name}",
+          "title": "Sample Dataset Set",
+          "type": "integer"
+        },
+        {
+          "property": "SampleTypeId",
+          "template": "${data.SampleTypeSet?.Name}",
+          "title": "Sample Type Set",
+          "type": "integer"
+        }
+      ],
+      "type": "grid"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getSampleSets",
+        "parameters": [
+          {
+            "name": "$top",
+            "value": "this.grid0.allowPaging ? this.grid0.pageSize : null"
+          },
+          {
+            "name": "$skip",
+            "value": "this.grid0.allowPaging ? 0 : null"
+          },
+          {
+            "name": "$count",
+            "value": "this.grid0.allowPaging"
+          },
+          {
+            "name": "$expand",
+            "value": "DeviceSet,PersonSet,SampleDatasetSet,SampleTypeSet"
+          }
+        ],
+        "then": [
+          {
+            "name": "getSampleSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          },
+          {
+            "name": "getSampleSetsCount",
+            "type": "set",
+            "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Sample Sets"
+}

@@ -1,0 +1,63 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new SampleDatasetSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createSampleDatasetSet",
+            "parameters": [
+              {
+                "name": "SampleDatasetSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "sample-dataset-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Description",
+          "required": false,
+          "title": "Description",
+          "type": "string"
+        },
+        {
+          "property": "Name",
+          "required": true,
+          "title": "Name",
+          "type": "string"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": []
+  },
+  "name": "Add Sample Dataset Set"
+}

@@ -1,0 +1,103 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "${personset}",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to update PersonSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.updatePersonSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${parameters.Id}"
+              },
+              {
+                "name": "PersonSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "person-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Address",
+          "required": false,
+          "title": "Address",
+          "type": "string"
+        },
+        {
+          "property": "DateOfBirth",
+          "required": false,
+          "title": "Date Of Birth",
+          "type": "date"
+        },
+        {
+          "property": "FirstName",
+          "required": false,
+          "title": "First Name",
+          "type": "string"
+        },
+        {
+          "property": "Gender",
+          "required": false,
+          "title": "Gender",
+          "type": "string"
+        },
+        {
+          "property": "LastName",
+          "required": false,
+          "title": "Last Name",
+          "type": "string"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getPersonSetById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "${parameters.Id}"
+          }
+        ],
+        "then": [
+          {
+            "name": "personset",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Person Set"
+}

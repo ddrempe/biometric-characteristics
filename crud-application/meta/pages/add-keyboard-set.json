@@ -1,0 +1,69 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new KeyboardSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createKeyboardSet",
+            "parameters": [
+              {
+                "name": "KeyboardSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "keyboard-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Description",
+          "required": false,
+          "title": "Description",
+          "type": "string"
+        },
+        {
+          "property": "Name",
+          "required": true,
+          "title": "Name",
+          "type": "string"
+        },
+        {
+          "property": "Type",
+          "required": false,
+          "title": "Type",
+          "type": "string"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": []
+  },
+  "name": "Add Keyboard Set"
+}

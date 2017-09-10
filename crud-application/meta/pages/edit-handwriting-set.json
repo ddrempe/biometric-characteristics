@@ -1,0 +1,117 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "${handwritingset}",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to update HandwritingSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.updateHandwritingSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${parameters.Id}"
+              },
+              {
+                "name": "HandwritingSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "handwriting-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "data": "${getSampleSetsResult}",
+          "property": "Sample_Id",
+          "required": true,
+          "textProperty": "FilePath",
+          "title": "Sample Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose SampleSet"
+        },
+        {
+          "data": "${getTextSetsResult}",
+          "property": "TextId",
+          "required": false,
+          "textProperty": "Content",
+          "title": "Text Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose TextSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getHandwritingSetById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "${parameters.Id}"
+          }
+        ],
+        "then": [
+          {
+            "name": "handwritingset",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getSampleSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSampleSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getTextSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTextSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Handwriting Set"
+}

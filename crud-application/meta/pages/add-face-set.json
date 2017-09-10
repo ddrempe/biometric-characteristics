@@ -1,0 +1,80 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new FaceSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createFaceSet",
+            "parameters": [
+              {
+                "name": "FaceSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "face-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Position",
+          "required": false,
+          "title": "Position",
+          "type": "string"
+        },
+        {
+          "data": "${getSampleSetsResult}",
+          "property": "Sample_Id",
+          "required": true,
+          "textProperty": "FilePath",
+          "title": "Sample Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose SampleSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getSampleSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSampleSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Face Set"
+}

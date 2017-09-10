@@ -1,0 +1,125 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "${signatureset}",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to update SignatureSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.updateSignatureSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${parameters.Id}"
+              },
+              {
+                "name": "SignatureSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "signature-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Penups",
+          "required": false,
+          "title": "Penups",
+          "type": "boolean"
+        },
+        {
+          "property": "Pressure",
+          "required": false,
+          "title": "Pressure",
+          "type": "integer"
+        },
+        {
+          "property": "SyntheticTimestamp",
+          "required": false,
+          "title": "Synthetic Timestamp",
+          "type": "integer"
+        },
+        {
+          "property": "XCoordinate",
+          "required": false,
+          "title": "X Coordinate",
+          "type": "integer"
+        },
+        {
+          "property": "YCoordinate",
+          "required": false,
+          "title": "Y Coordinate",
+          "type": "integer"
+        },
+        {
+          "data": "${getSampleSetsResult}",
+          "property": "Sample_Id",
+          "required": true,
+          "textProperty": "FilePath",
+          "title": "Sample Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose SampleSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getSignatureSetById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "${parameters.Id}"
+          }
+        ],
+        "then": [
+          {
+            "name": "signatureset",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getSampleSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSampleSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Signature Set"
+}

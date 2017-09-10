@@ -1,0 +1,178 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new KeystrokeSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createKeystrokeSet",
+            "parameters": [
+              {
+                "name": "KeystrokeSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "keystroke-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Password",
+          "required": true,
+          "title": "Password",
+          "type": "string"
+        },
+        {
+          "property": "PpTime",
+          "required": true,
+          "title": "Pp Time",
+          "type": "string"
+        },
+        {
+          "property": "PrTime",
+          "required": true,
+          "title": "Pr Time",
+          "type": "string"
+        },
+        {
+          "property": "RawPress",
+          "required": true,
+          "title": "Raw Press",
+          "type": "string"
+        },
+        {
+          "property": "RawRelease",
+          "required": true,
+          "title": "Raw Release",
+          "type": "string"
+        },
+        {
+          "property": "RpTime",
+          "required": true,
+          "title": "Rp Time",
+          "type": "string"
+        },
+        {
+          "property": "RrTime",
+          "required": true,
+          "title": "Rr Time",
+          "type": "string"
+        },
+        {
+          "property": "Success",
+          "required": true,
+          "title": "Success",
+          "type": "boolean"
+        },
+        {
+          "property": "TimeToType",
+          "required": true,
+          "title": "Time To Type",
+          "type": "string"
+        },
+        {
+          "property": "Vector",
+          "required": true,
+          "title": "Vector",
+          "type": "string"
+        },
+        {
+          "data": "${getKeyboardSetsResult}",
+          "property": "KeyboardId",
+          "required": false,
+          "textProperty": "Name",
+          "title": "Keyboard Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose KeyboardSet"
+        },
+        {
+          "data": "${getKeystrokeDatasetSetsResult}",
+          "property": "KeystrokeDatasetId",
+          "required": false,
+          "textProperty": "Name",
+          "title": "Keystroke Dataset Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose KeystrokeDatasetSet"
+        },
+        {
+          "data": "${getPersonSetsResult}",
+          "property": "PersonId",
+          "required": true,
+          "textProperty": "FirstName",
+          "title": "Person Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose PersonSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getKeyboardSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getKeyboardSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getKeystrokeDatasetSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getKeystrokeDatasetSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getPersonSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPersonSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Keystroke Set"
+}

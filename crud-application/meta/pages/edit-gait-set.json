@@ -1,0 +1,107 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "${gaitset}",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to update GaitSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.updateGaitSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${parameters.Id}"
+              },
+              {
+                "name": "GaitSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "gait-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Direction",
+          "required": false,
+          "title": "Direction",
+          "type": "string"
+        },
+        {
+          "property": "FrameNumber",
+          "required": false,
+          "title": "Frame Number",
+          "type": "integer"
+        },
+        {
+          "data": "${getSampleSetsResult}",
+          "property": "Sample_Id",
+          "required": true,
+          "textProperty": "FilePath",
+          "title": "Sample Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose SampleSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getGaitSetById",
+        "parameters": [
+          {
+            "name": "Id",
+            "value": "${parameters.Id}"
+          }
+        ],
+        "then": [
+          {
+            "name": "gaitset",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "biometric characteristics model.getSampleSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSampleSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Gait Set"
+}

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-sm-12">
+    <rz-form #form0 name="form0" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+      <rz-lookup-form-field [data]="getSampleSetsResult" property="Sample_Id" [required]="true" textProperty="FilePath" title="Sample Set" valueProperty="Id" placeholder="Choose SampleSet" type="lookup">
+      </rz-lookup-form-field>
+      <rz-lookup-form-field [data]="getTextSetsResult" property="TextId" [required]="false" textProperty="Content" title="Text Set" valueProperty="Id" placeholder="Choose TextSet" type="lookup">
+      </rz-lookup-form-field>
+    </rz-form>
+  </div>
+</div>
+<rz-notification [messages]="messages"></rz-notification>

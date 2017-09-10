@@ -1,0 +1,92 @@
+{
+  "components": [
+    {
+      "col": 12,
+      "data": "",
+      "events": {
+        "cancel": [
+          {
+            "type": "back"
+          }
+        ],
+        "submit": [
+          {
+            "error": [
+              {
+                "detail": "Unable to create new DeviceSet!",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.createDeviceSet",
+            "parameters": [
+              {
+                "name": "DeviceSet",
+                "value": "${event}"
+              }
+            ],
+            "then": [
+              {
+                "path": "device-sets",
+                "type": "navigate"
+              }
+            ],
+            "type": "invoke"
+          }
+        ]
+      },
+      "fields": [
+        {
+          "property": "Description",
+          "required": false,
+          "title": "Description",
+          "type": "string"
+        },
+        {
+          "property": "Manufacturer",
+          "required": false,
+          "title": "Manufacturer",
+          "type": "string"
+        },
+        {
+          "property": "Name",
+          "required": true,
+          "title": "Name",
+          "type": "string"
+        },
+        {
+          "data": "${getDeviceTypeSetsResult}",
+          "property": "DeviceTypeId",
+          "required": false,
+          "textProperty": "Name",
+          "title": "Device Type Set",
+          "type": "lookup",
+          "valueProperty": "Id",
+          "placeholder": "Choose DeviceTypeSet"
+        }
+      ],
+      "row": 0,
+      "section": null,
+      "name": "form0",
+      "type": "form"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getDeviceTypeSets",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getDeviceTypeSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Device Set"
+}

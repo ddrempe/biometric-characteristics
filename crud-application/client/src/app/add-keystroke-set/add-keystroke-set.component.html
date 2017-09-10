@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-12">
+    <rz-form #form0 name="form0" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+      <rz-string-form-field property="Password" [required]="true" title="Password" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="PpTime" [required]="true" title="Pp Time" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="PrTime" [required]="true" title="Pr Time" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="RawPress" [required]="true" title="Raw Press" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="RawRelease" [required]="true" title="Raw Release" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="RpTime" [required]="true" title="Rp Time" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="RrTime" [required]="true" title="Rr Time" type="string">
+      </rz-string-form-field>
+      <rz-boolean-form-field property="Success" [required]="true" title="Success" type="boolean">
+      </rz-boolean-form-field>
+      <rz-string-form-field property="TimeToType" [required]="true" title="Time To Type" type="string">
+      </rz-string-form-field>
+      <rz-string-form-field property="Vector" [required]="true" title="Vector" type="string">
+      </rz-string-form-field>
+      <rz-lookup-form-field [data]="getKeyboardSetsResult" property="KeyboardId" [required]="false" textProperty="Name" title="Keyboard Set" valueProperty="Id" placeholder="Choose KeyboardSet" type="lookup">
+      </rz-lookup-form-field>
+      <rz-lookup-form-field [data]="getKeystrokeDatasetSetsResult" property="KeystrokeDatasetId" [required]="false" textProperty="Name" title="Keystroke Dataset Set" valueProperty="Id" placeholder="Choose KeystrokeDatasetSet" type="lookup">
+      </rz-lookup-form-field>
+      <rz-lookup-form-field [data]="getPersonSetsResult" property="PersonId" [required]="true" textProperty="FirstName" title="Person Set" valueProperty="Id" placeholder="Choose PersonSet" type="lookup">
+      </rz-lookup-form-field>
+    </rz-form>
+  </div>
+</div>
+<rz-notification [messages]="messages"></rz-notification>
