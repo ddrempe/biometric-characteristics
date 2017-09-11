@@ -82,5 +82,6 @@
       }
     ]
   },
-  "name": "Add Fingerprint Set"
+  "name": "Add Fingerprint Set",
+  "access": ""
 }

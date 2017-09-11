@@ -65,5 +65,6 @@
   "events": {
     "load": []
   },
-  "name": "Add Keyboard Set"
+  "name": "Add Keyboard Set",
+  "access": ""
 }

@@ -187,5 +187,6 @@
       }
     ]
   },
-  "name": "Edit Sample Set"
+  "name": "Edit Sample Set",
+  "access": ""
 }

@@ -11,122 +11,122 @@ import { RadzenModule } from '@radzen/angular';
 import { AppRoutes } from './app.routes';
 import { AppComponent, PageTitleComponent } from './app.component';
 export { AppComponent } from './app.component';
-import { DeviceSetsComponent } from './device-sets/device-sets.component';
+import { DeviceComponent } from './device/device.component';
 import { AddDeviceSetComponent } from './add-device-set/add-device-set.component';
 import { EditDeviceSetComponent } from './edit-device-set/edit-device-set.component';
-import { DeviceTypeSetsComponent } from './device-type-sets/device-type-sets.component';
+import { DeviceTypeComponent } from './device-type/device-type.component';
 import { AddDeviceTypeSetComponent } from './add-device-type-set/add-device-type-set.component';
 import { EditDeviceTypeSetComponent } from './edit-device-type-set/edit-device-type-set.component';
-import { FaceSetsComponent } from './face-sets/face-sets.component';
+import { FaceComponent } from './face/face.component';
 import { AddFaceSetComponent } from './add-face-set/add-face-set.component';
 import { EditFaceSetComponent } from './edit-face-set/edit-face-set.component';
-import { FingerprintSetsComponent } from './fingerprint-sets/fingerprint-sets.component';
+import { FingerprintComponent } from './fingerprint/fingerprint.component';
 import { AddFingerprintSetComponent } from './add-fingerprint-set/add-fingerprint-set.component';
 import { EditFingerprintSetComponent } from './edit-fingerprint-set/edit-fingerprint-set.component';
-import { GaitSetsComponent } from './gait-sets/gait-sets.component';
+import { GaitComponent } from './gait/gait.component';
 import { AddGaitSetComponent } from './add-gait-set/add-gait-set.component';
 import { EditGaitSetComponent } from './edit-gait-set/edit-gait-set.component';
-import { HandwritingSetsComponent } from './handwriting-sets/handwriting-sets.component';
+import { HandwritingComponent } from './handwriting/handwriting.component';
 import { AddHandwritingSetComponent } from './add-handwriting-set/add-handwriting-set.component';
 import { EditHandwritingSetComponent } from './edit-handwriting-set/edit-handwriting-set.component';
-import { IrisSetsComponent } from './iris-sets/iris-sets.component';
+import { IrisComponent } from './iris/iris.component';
 import { AddIrisSetComponent } from './add-iris-set/add-iris-set.component';
 import { EditIrisSetComponent } from './edit-iris-set/edit-iris-set.component';
-import { KeyboardSetsComponent } from './keyboard-sets/keyboard-sets.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 import { AddKeyboardSetComponent } from './add-keyboard-set/add-keyboard-set.component';
 import { EditKeyboardSetComponent } from './edit-keyboard-set/edit-keyboard-set.component';
-import { KeystrokeDatasetSetsComponent } from './keystroke-dataset-sets/keystroke-dataset-sets.component';
+import { KeystrokeDatasetComponent } from './keystroke-dataset/keystroke-dataset.component';
 import { AddKeystrokeDatasetSetComponent } from './add-keystroke-dataset-set/add-keystroke-dataset-set.component';
 import { EditKeystrokeDatasetSetComponent } from './edit-keystroke-dataset-set/edit-keystroke-dataset-set.component';
-import { KeystrokeSetsComponent } from './keystroke-sets/keystroke-sets.component';
+import { KeystrokeComponent } from './keystroke/keystroke.component';
 import { AddKeystrokeSetComponent } from './add-keystroke-set/add-keystroke-set.component';
 import { EditKeystrokeSetComponent } from './edit-keystroke-set/edit-keystroke-set.component';
-import { LanguageSetsComponent } from './language-sets/language-sets.component';
+import { LanguageComponent } from './language/language.component';
 import { AddLanguageSetComponent } from './add-language-set/add-language-set.component';
 import { EditLanguageSetComponent } from './edit-language-set/edit-language-set.component';
-import { PalmprintSetsComponent } from './palmprint-sets/palmprint-sets.component';
+import { PalmprintComponent } from './palmprint/palmprint.component';
 import { AddPalmprintSetComponent } from './add-palmprint-set/add-palmprint-set.component';
 import { EditPalmprintSetComponent } from './edit-palmprint-set/edit-palmprint-set.component';
-import { PersonSetsComponent } from './person-sets/person-sets.component';
+import { PersonComponent } from './person/person.component';
 import { AddPersonSetComponent } from './add-person-set/add-person-set.component';
 import { EditPersonSetComponent } from './edit-person-set/edit-person-set.component';
-import { SampleDatasetSetsComponent } from './sample-dataset-sets/sample-dataset-sets.component';
+import { SampleDatasetComponent } from './sample-dataset/sample-dataset.component';
 import { AddSampleDatasetSetComponent } from './add-sample-dataset-set/add-sample-dataset-set.component';
 import { EditSampleDatasetSetComponent } from './edit-sample-dataset-set/edit-sample-dataset-set.component';
-import { SampleSetsComponent } from './sample-sets/sample-sets.component';
+import { SampleComponent } from './sample/sample.component';
 import { AddSampleSetComponent } from './add-sample-set/add-sample-set.component';
 import { EditSampleSetComponent } from './edit-sample-set/edit-sample-set.component';
-import { SampleTypeSetsComponent } from './sample-type-sets/sample-type-sets.component';
+import { SampleTypeComponent } from './sample-type/sample-type.component';
 import { AddSampleTypeSetComponent } from './add-sample-type-set/add-sample-type-set.component';
 import { EditSampleTypeSetComponent } from './edit-sample-type-set/edit-sample-type-set.component';
-import { SignatureSetsComponent } from './signature-sets/signature-sets.component';
+import { SignatureComponent } from './signature/signature.component';
 import { AddSignatureSetComponent } from './add-signature-set/add-signature-set.component';
 import { EditSignatureSetComponent } from './edit-signature-set/edit-signature-set.component';
-import { SpeechSetsComponent } from './speech-sets/speech-sets.component';
+import { SpeechComponent } from './speech/speech.component';
 import { AddSpeechSetComponent } from './add-speech-set/add-speech-set.component';
 import { EditSpeechSetComponent } from './edit-speech-set/edit-speech-set.component';
-import { TextSetsComponent } from './text-sets/text-sets.component';
+import { TextComponent } from './text/text.component';
 import { AddTextSetComponent } from './add-text-set/add-text-set.component';
 import { EditTextSetComponent } from './edit-text-set/edit-text-set.component';
 
 import { BiometricCharacteristicsModelService } from './biometric-characteristics-model.service';
 
 export const AppDeclarations = [
-  DeviceSetsComponent,
+  DeviceComponent,
   AddDeviceSetComponent,
   EditDeviceSetComponent,
-  DeviceTypeSetsComponent,
+  DeviceTypeComponent,
   AddDeviceTypeSetComponent,
   EditDeviceTypeSetComponent,
-  FaceSetsComponent,
+  FaceComponent,
   AddFaceSetComponent,
   EditFaceSetComponent,
-  FingerprintSetsComponent,
+  FingerprintComponent,
   AddFingerprintSetComponent,
   EditFingerprintSetComponent,
-  GaitSetsComponent,
+  GaitComponent,
   AddGaitSetComponent,
   EditGaitSetComponent,
-  HandwritingSetsComponent,
+  HandwritingComponent,
   AddHandwritingSetComponent,
   EditHandwritingSetComponent,
-  IrisSetsComponent,
+  IrisComponent,
   AddIrisSetComponent,
   EditIrisSetComponent,
-  KeyboardSetsComponent,
+  KeyboardComponent,
   AddKeyboardSetComponent,
   EditKeyboardSetComponent,
-  KeystrokeDatasetSetsComponent,
+  KeystrokeDatasetComponent,
   AddKeystrokeDatasetSetComponent,
   EditKeystrokeDatasetSetComponent,
-  KeystrokeSetsComponent,
+  KeystrokeComponent,
   AddKeystrokeSetComponent,
   EditKeystrokeSetComponent,
-  LanguageSetsComponent,
+  LanguageComponent,
   AddLanguageSetComponent,
   EditLanguageSetComponent,
-  PalmprintSetsComponent,
+  PalmprintComponent,
   AddPalmprintSetComponent,
   EditPalmprintSetComponent,
-  PersonSetsComponent,
+  PersonComponent,
   AddPersonSetComponent,
   EditPersonSetComponent,
-  SampleDatasetSetsComponent,
+  SampleDatasetComponent,
   AddSampleDatasetSetComponent,
   EditSampleDatasetSetComponent,
-  SampleSetsComponent,
+  SampleComponent,
   AddSampleSetComponent,
   EditSampleSetComponent,
-  SampleTypeSetsComponent,
+  SampleTypeComponent,
   AddSampleTypeSetComponent,
   EditSampleTypeSetComponent,
-  SignatureSetsComponent,
+  SignatureComponent,
   AddSignatureSetComponent,
   EditSignatureSetComponent,
-  SpeechSetsComponent,
+  SpeechComponent,
   AddSpeechSetComponent,
   EditSpeechSetComponent,
-  TextSetsComponent,
+  TextComponent,
   AddTextSetComponent,
   EditTextSetComponent,
   AppComponent,

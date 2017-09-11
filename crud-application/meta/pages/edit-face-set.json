@@ -97,5 +97,6 @@
       }
     ]
   },
-  "name": "Edit Face Set"
+  "name": "Edit Face Set",
+  "access": ""
 }

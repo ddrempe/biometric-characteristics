@@ -76,5 +76,6 @@
       }
     ]
   },
-  "name": "Add Text Set"
+  "name": "Add Text Set",
+  "access": ""
 }

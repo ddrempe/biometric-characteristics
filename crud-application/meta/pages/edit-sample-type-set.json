@@ -81,5 +81,6 @@
       }
     ]
   },
-  "name": "Edit Sample Type Set"
+  "name": "Edit Sample Type Set",
+  "access": ""
 }

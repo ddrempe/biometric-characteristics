@@ -77,5 +77,6 @@
   "events": {
     "load": []
   },
-  "name": "Add Person Set"
+  "name": "Add Person Set",
+  "access": ""
 }

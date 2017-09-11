@@ -99,5 +99,6 @@
       }
     ]
   },
-  "name": "Edit Person Set"
+  "name": "Edit Person Set",
+  "access": ""
 }

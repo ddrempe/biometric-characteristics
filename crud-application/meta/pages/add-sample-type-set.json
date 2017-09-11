@@ -59,5 +59,6 @@
   "events": {
     "load": []
   },
-  "name": "Add Sample Type Set"
+  "name": "Add Sample Type Set",
+  "access": ""
 }

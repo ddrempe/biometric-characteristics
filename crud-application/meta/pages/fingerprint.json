@@ -1,0 +1,175 @@
+{
+  "components": [
+    {
+      "name": "grid0",
+      "allowDelete": true,
+      "allowAdd": true,
+      "allowFiltering": true,
+      "allowMultiSorting": false,
+      "allowPaging": true,
+      "allowSorting": true,
+      "col": 12,
+      "count": "${getFingerprintSetsCount}",
+      "data": "${getFingerprintSetsResult}",
+      "events": {
+        "loadData": [
+          {
+            "name": "biometric characteristics model.getFingerprintSets",
+            "parameters": [
+              {
+                "name": "$filter",
+                "value": "${event.filter}"
+              },
+              {
+                "name": "$top",
+                "value": "this.grid0.allowPaging ? event.top : null"
+              },
+              {
+                "name": "$skip",
+                "value": "this.grid0.allowPaging ? event.skip : null"
+              },
+              {
+                "name": "$orderby",
+                "value": "${event.orderby}"
+              },
+              {
+                "name": "$count",
+                "value": "this.grid0.allowPaging"
+              },
+              {
+                "name": "$expand",
+                "value": "SampleSet"
+              }
+            ],
+            "then": [
+              {
+                "name": "getFingerprintSetsResult",
+                "type": "set",
+                "value": "${result.value}"
+              },
+              {
+                "name": "getFingerprintSetsCount",
+                "type": "set",
+                "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete FingerprintSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteFingerprintSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "FingerprintSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "add": [
+          {
+            "path": "add-fingerprint-set",
+            "type": "popup"
+          }
+        ],
+        "rowSelect": [
+          {
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "path": "edit-fingerprint-set",
+            "type": "popup"
+          }
+        ]
+      },
+      "row": 0,
+      "section": null,
+      "title": "",
+      "columns": [
+        {
+          "property": "Finger",
+          "title": "Finger",
+          "type": "string"
+        },
+        {
+          "property": "Hand",
+          "title": "Hand",
+          "type": "string"
+        },
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "Sample_Id",
+          "template": "${data.SampleSet?.FilePath}",
+          "title": "Sample Set",
+          "type": "integer"
+        }
+      ],
+      "type": "grid"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getFingerprintSets",
+        "parameters": [
+          {
+            "name": "$top",
+            "value": "this.grid0.allowPaging ? this.grid0.pageSize : null"
+          },
+          {
+            "name": "$skip",
+            "value": "this.grid0.allowPaging ? 0 : null"
+          },
+          {
+            "name": "$count",
+            "value": "this.grid0.allowPaging"
+          },
+          {
+            "name": "$expand",
+            "value": "SampleSet"
+          }
+        ],
+        "then": [
+          {
+            "name": "getFingerprintSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          },
+          {
+            "name": "getFingerprintSetsCount",
+            "type": "set",
+            "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Fingerprint",
+  "access": ""
+}

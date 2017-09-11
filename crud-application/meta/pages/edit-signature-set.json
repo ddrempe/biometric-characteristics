@@ -121,5 +121,6 @@
       }
     ]
   },
-  "name": "Edit Signature Set"
+  "name": "Edit Signature Set",
+  "access": ""
 }

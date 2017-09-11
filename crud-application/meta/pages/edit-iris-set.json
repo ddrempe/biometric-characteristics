@@ -97,5 +97,6 @@
       }
     ]
   },
-  "name": "Edit Iris Set"
+  "name": "Edit Iris Set",
+  "access": ""
 }

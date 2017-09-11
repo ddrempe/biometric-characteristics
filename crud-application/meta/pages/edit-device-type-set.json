@@ -81,5 +81,6 @@
       }
     ]
   },
-  "name": "Edit Device Type Set"
+  "name": "Edit Device Type Set",
+  "access": ""
 }

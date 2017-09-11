@@ -103,5 +103,6 @@
       }
     ]
   },
-  "name": "Edit Gait Set"
+  "name": "Edit Gait Set",
+  "access": ""
 }

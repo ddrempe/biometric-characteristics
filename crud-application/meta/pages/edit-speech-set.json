@@ -97,5 +97,6 @@
       }
     ]
   },
-  "name": "Edit Speech Set"
+  "name": "Edit Speech Set",
+  "access": ""
 }

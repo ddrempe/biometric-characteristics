@@ -174,5 +174,6 @@
       }
     ]
   },
-  "name": "Add Keystroke Set"
+  "name": "Add Keystroke Set",
+  "access": ""
 }

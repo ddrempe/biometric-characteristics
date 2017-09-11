@@ -109,5 +109,6 @@
       }
     ]
   },
-  "name": "Edit Device Set"
+  "name": "Edit Device Set",
+  "access": ""
 }

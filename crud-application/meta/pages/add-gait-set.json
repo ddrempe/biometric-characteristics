@@ -82,5 +82,6 @@
       }
     ]
   },
-  "name": "Add Gait Set"
+  "name": "Add Gait Set",
+  "access": ""
 }

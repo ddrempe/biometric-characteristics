@@ -59,5 +59,6 @@
   "events": {
     "load": []
   },
-  "name": "Add Language Set"
+  "name": "Add Language Set",
+  "access": ""
 }

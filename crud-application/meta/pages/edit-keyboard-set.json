@@ -87,5 +87,6 @@
       }
     ]
   },
-  "name": "Edit Keyboard Set"
+  "name": "Edit Keyboard Set",
+  "access": ""
 }

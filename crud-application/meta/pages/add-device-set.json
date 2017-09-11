@@ -88,5 +88,6 @@
       }
     ]
   },
-  "name": "Add Device Set"
+  "name": "Add Device Set",
+  "access": ""
 }

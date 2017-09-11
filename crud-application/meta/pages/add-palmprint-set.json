@@ -82,5 +82,6 @@
       }
     ]
   },
-  "name": "Add Palmprint Set"
+  "name": "Add Palmprint Set",
+  "access": ""
 }

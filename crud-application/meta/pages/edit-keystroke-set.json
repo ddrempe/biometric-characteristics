@@ -195,5 +195,6 @@
       }
     ]
   },
-  "name": "Edit Keystroke Set"
+  "name": "Edit Keystroke Set",
+  "access": ""
 }

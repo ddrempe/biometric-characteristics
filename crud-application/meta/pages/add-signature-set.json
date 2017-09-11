@@ -100,5 +100,6 @@
       }
     ]
   },
-  "name": "Add Signature Set"
+  "name": "Add Signature Set",
+  "access": ""
 }

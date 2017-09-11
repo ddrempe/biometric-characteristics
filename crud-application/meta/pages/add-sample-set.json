@@ -166,5 +166,6 @@
       }
     ]
   },
-  "name": "Add Sample Set"
+  "name": "Add Sample Set",
+  "access": ""
 }

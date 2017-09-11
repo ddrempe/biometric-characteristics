@@ -1,0 +1,165 @@
+{
+  "components": [
+    {
+      "name": "grid0",
+      "allowDelete": true,
+      "allowAdd": true,
+      "allowFiltering": true,
+      "allowMultiSorting": false,
+      "allowPaging": true,
+      "allowSorting": true,
+      "col": 12,
+      "count": "${getSampleDatasetSetsCount}",
+      "data": "${getSampleDatasetSetsResult}",
+      "events": {
+        "loadData": [
+          {
+            "name": "biometric characteristics model.getSampleDatasetSets",
+            "parameters": [
+              {
+                "name": "$filter",
+                "value": "${event.filter}"
+              },
+              {
+                "name": "$top",
+                "value": "this.grid0.allowPaging ? event.top : null"
+              },
+              {
+                "name": "$skip",
+                "value": "this.grid0.allowPaging ? event.skip : null"
+              },
+              {
+                "name": "$orderby",
+                "value": "${event.orderby}"
+              },
+              {
+                "name": "$count",
+                "value": "this.grid0.allowPaging"
+              },
+              {
+                "name": "$expand",
+                "value": ""
+              }
+            ],
+            "then": [
+              {
+                "name": "getSampleDatasetSetsResult",
+                "type": "set",
+                "value": "${result.value}"
+              },
+              {
+                "name": "getSampleDatasetSetsCount",
+                "type": "set",
+                "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete SampleDatasetSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteSampleDatasetSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "SampleDatasetSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "add": [
+          {
+            "path": "add-sample-dataset-set",
+            "type": "popup"
+          }
+        ],
+        "rowSelect": [
+          {
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "path": "edit-sample-dataset-set",
+            "type": "popup"
+          }
+        ]
+      },
+      "row": 0,
+      "section": null,
+      "title": "",
+      "columns": [
+        {
+          "property": "Description",
+          "title": "Description",
+          "type": "string"
+        },
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "Name",
+          "title": "Name",
+          "type": "string"
+        }
+      ],
+      "type": "grid"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "biometric characteristics model.getSampleDatasetSets",
+        "parameters": [
+          {
+            "name": "$top",
+            "value": "this.grid0.allowPaging ? this.grid0.pageSize : null"
+          },
+          {
+            "name": "$skip",
+            "value": "this.grid0.allowPaging ? 0 : null"
+          },
+          {
+            "name": "$count",
+            "value": "this.grid0.allowPaging"
+          }
+        ],
+        "then": [
+          {
+            "name": "getSampleDatasetSetsResult",
+            "type": "set",
+            "value": "${result.value}"
+          },
+          {
+            "name": "getSampleDatasetSetsCount",
+            "type": "set",
+            "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "SampleDataset",
+  "access": ""
+}

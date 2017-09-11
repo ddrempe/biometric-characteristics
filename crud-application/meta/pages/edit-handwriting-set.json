@@ -113,5 +113,6 @@
       }
     ]
   },
-  "name": "Edit Handwriting Set"
+  "name": "Edit Handwriting Set",
+  "access": ""
 }

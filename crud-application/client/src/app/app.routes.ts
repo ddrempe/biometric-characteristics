@@ -2,89 +2,89 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 
 import { PageTitleComponent } from './app.component';
-import { DeviceSetsComponent } from './device-sets/device-sets.component';
+import { DeviceComponent } from './device/device.component';
 import { AddDeviceSetComponent } from './add-device-set/add-device-set.component';
 import { EditDeviceSetComponent } from './edit-device-set/edit-device-set.component';
-import { DeviceTypeSetsComponent } from './device-type-sets/device-type-sets.component';
+import { DeviceTypeComponent } from './device-type/device-type.component';
 import { AddDeviceTypeSetComponent } from './add-device-type-set/add-device-type-set.component';
 import { EditDeviceTypeSetComponent } from './edit-device-type-set/edit-device-type-set.component';
-import { FaceSetsComponent } from './face-sets/face-sets.component';
+import { FaceComponent } from './face/face.component';
 import { AddFaceSetComponent } from './add-face-set/add-face-set.component';
 import { EditFaceSetComponent } from './edit-face-set/edit-face-set.component';
-import { FingerprintSetsComponent } from './fingerprint-sets/fingerprint-sets.component';
+import { FingerprintComponent } from './fingerprint/fingerprint.component';
 import { AddFingerprintSetComponent } from './add-fingerprint-set/add-fingerprint-set.component';
 import { EditFingerprintSetComponent } from './edit-fingerprint-set/edit-fingerprint-set.component';
-import { GaitSetsComponent } from './gait-sets/gait-sets.component';
+import { GaitComponent } from './gait/gait.component';
 import { AddGaitSetComponent } from './add-gait-set/add-gait-set.component';
 import { EditGaitSetComponent } from './edit-gait-set/edit-gait-set.component';
-import { HandwritingSetsComponent } from './handwriting-sets/handwriting-sets.component';
+import { HandwritingComponent } from './handwriting/handwriting.component';
 import { AddHandwritingSetComponent } from './add-handwriting-set/add-handwriting-set.component';
 import { EditHandwritingSetComponent } from './edit-handwriting-set/edit-handwriting-set.component';
-import { IrisSetsComponent } from './iris-sets/iris-sets.component';
+import { IrisComponent } from './iris/iris.component';
 import { AddIrisSetComponent } from './add-iris-set/add-iris-set.component';
 import { EditIrisSetComponent } from './edit-iris-set/edit-iris-set.component';
-import { KeyboardSetsComponent } from './keyboard-sets/keyboard-sets.component';
+import { KeyboardComponent } from './keyboard/keyboard.component';
 import { AddKeyboardSetComponent } from './add-keyboard-set/add-keyboard-set.component';
 import { EditKeyboardSetComponent } from './edit-keyboard-set/edit-keyboard-set.component';
-import { KeystrokeDatasetSetsComponent } from './keystroke-dataset-sets/keystroke-dataset-sets.component';
+import { KeystrokeDatasetComponent } from './keystroke-dataset/keystroke-dataset.component';
 import { AddKeystrokeDatasetSetComponent } from './add-keystroke-dataset-set/add-keystroke-dataset-set.component';
 import { EditKeystrokeDatasetSetComponent } from './edit-keystroke-dataset-set/edit-keystroke-dataset-set.component';
-import { KeystrokeSetsComponent } from './keystroke-sets/keystroke-sets.component';
+import { KeystrokeComponent } from './keystroke/keystroke.component';
 import { AddKeystrokeSetComponent } from './add-keystroke-set/add-keystroke-set.component';
 import { EditKeystrokeSetComponent } from './edit-keystroke-set/edit-keystroke-set.component';
-import { LanguageSetsComponent } from './language-sets/language-sets.component';
+import { LanguageComponent } from './language/language.component';
 import { AddLanguageSetComponent } from './add-language-set/add-language-set.component';
 import { EditLanguageSetComponent } from './edit-language-set/edit-language-set.component';
-import { PalmprintSetsComponent } from './palmprint-sets/palmprint-sets.component';
+import { PalmprintComponent } from './palmprint/palmprint.component';
 import { AddPalmprintSetComponent } from './add-palmprint-set/add-palmprint-set.component';
 import { EditPalmprintSetComponent } from './edit-palmprint-set/edit-palmprint-set.component';
-import { PersonSetsComponent } from './person-sets/person-sets.component';
+import { PersonComponent } from './person/person.component';
 import { AddPersonSetComponent } from './add-person-set/add-person-set.component';
 import { EditPersonSetComponent } from './edit-person-set/edit-person-set.component';
-import { SampleDatasetSetsComponent } from './sample-dataset-sets/sample-dataset-sets.component';
+import { SampleDatasetComponent } from './sample-dataset/sample-dataset.component';
 import { AddSampleDatasetSetComponent } from './add-sample-dataset-set/add-sample-dataset-set.component';
 import { EditSampleDatasetSetComponent } from './edit-sample-dataset-set/edit-sample-dataset-set.component';
-import { SampleSetsComponent } from './sample-sets/sample-sets.component';
+import { SampleComponent } from './sample/sample.component';
 import { AddSampleSetComponent } from './add-sample-set/add-sample-set.component';
 import { EditSampleSetComponent } from './edit-sample-set/edit-sample-set.component';
-import { SampleTypeSetsComponent } from './sample-type-sets/sample-type-sets.component';
+import { SampleTypeComponent } from './sample-type/sample-type.component';
 import { AddSampleTypeSetComponent } from './add-sample-type-set/add-sample-type-set.component';
 import { EditSampleTypeSetComponent } from './edit-sample-type-set/edit-sample-type-set.component';
-import { SignatureSetsComponent } from './signature-sets/signature-sets.component';
+import { SignatureComponent } from './signature/signature.component';
 import { AddSignatureSetComponent } from './add-signature-set/add-signature-set.component';
 import { EditSignatureSetComponent } from './edit-signature-set/edit-signature-set.component';
-import { SpeechSetsComponent } from './speech-sets/speech-sets.component';
+import { SpeechComponent } from './speech/speech.component';
 import { AddSpeechSetComponent } from './add-speech-set/add-speech-set.component';
 import { EditSpeechSetComponent } from './edit-speech-set/edit-speech-set.component';
-import { TextSetsComponent } from './text-sets/text-sets.component';
+import { TextComponent } from './text/text.component';
 import { AddTextSetComponent } from './add-text-set/add-text-set.component';
 import { EditTextSetComponent } from './edit-text-set/edit-text-set.component';
 
 
 export const routes: Routes = [
   {
-    path: 'device-sets',
+    path: 'device',
     children: [
       {
         path: '',
-        component: DeviceSetsComponent
+        component: DeviceComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Device Sets'
+          title: 'Device'
         }
       }
     ]
   },
   {
-    path: 'device-sets',
-    component: DeviceSetsComponent,
+    path: 'device',
+    component: DeviceComponent,
     outlet: 'popup',
     data: {
-      title: 'Device Sets'
+      title: 'Device'
     }
   },
   {
@@ -138,28 +138,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'device-type-sets',
+    path: 'device-type',
     children: [
       {
         path: '',
-        component: DeviceTypeSetsComponent
+        component: DeviceTypeComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Device Type Sets'
+          title: 'DeviceType'
         }
       }
     ]
   },
   {
-    path: 'device-type-sets',
-    component: DeviceTypeSetsComponent,
+    path: 'device-type',
+    component: DeviceTypeComponent,
     outlet: 'popup',
     data: {
-      title: 'Device Type Sets'
+      title: 'DeviceType'
     }
   },
   {
@@ -213,28 +213,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'face-sets',
+    path: 'face',
     children: [
       {
         path: '',
-        component: FaceSetsComponent
+        component: FaceComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Face Sets'
+          title: 'Face'
         }
       }
     ]
   },
   {
-    path: 'face-sets',
-    component: FaceSetsComponent,
+    path: 'face',
+    component: FaceComponent,
     outlet: 'popup',
     data: {
-      title: 'Face Sets'
+      title: 'Face'
     }
   },
   {
@@ -288,28 +288,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'fingerprint-sets',
+    path: 'fingerprint',
     children: [
       {
         path: '',
-        component: FingerprintSetsComponent
+        component: FingerprintComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Fingerprint Sets'
+          title: 'Fingerprint'
         }
       }
     ]
   },
   {
-    path: 'fingerprint-sets',
-    component: FingerprintSetsComponent,
+    path: 'fingerprint',
+    component: FingerprintComponent,
     outlet: 'popup',
     data: {
-      title: 'Fingerprint Sets'
+      title: 'Fingerprint'
     }
   },
   {
@@ -363,28 +363,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'gait-sets',
+    path: 'gait',
     children: [
       {
         path: '',
-        component: GaitSetsComponent
+        component: GaitComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Gait Sets'
+          title: 'Gait'
         }
       }
     ]
   },
   {
-    path: 'gait-sets',
-    component: GaitSetsComponent,
+    path: 'gait',
+    component: GaitComponent,
     outlet: 'popup',
     data: {
-      title: 'Gait Sets'
+      title: 'Gait'
     }
   },
   {
@@ -438,28 +438,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'handwriting-sets',
+    path: 'handwriting',
     children: [
       {
         path: '',
-        component: HandwritingSetsComponent
+        component: HandwritingComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Handwriting Sets'
+          title: 'Handwriting'
         }
       }
     ]
   },
   {
-    path: 'handwriting-sets',
-    component: HandwritingSetsComponent,
+    path: 'handwriting',
+    component: HandwritingComponent,
     outlet: 'popup',
     data: {
-      title: 'Handwriting Sets'
+      title: 'Handwriting'
     }
   },
   {
@@ -513,28 +513,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'iris-sets',
+    path: 'iris',
     children: [
       {
         path: '',
-        component: IrisSetsComponent
+        component: IrisComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Iris Sets'
+          title: 'Iris'
         }
       }
     ]
   },
   {
-    path: 'iris-sets',
-    component: IrisSetsComponent,
+    path: 'iris',
+    component: IrisComponent,
     outlet: 'popup',
     data: {
-      title: 'Iris Sets'
+      title: 'Iris'
     }
   },
   {
@@ -588,28 +588,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'keyboard-sets',
+    path: 'keyboard',
     children: [
       {
         path: '',
-        component: KeyboardSetsComponent
+        component: KeyboardComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Keyboard Sets'
+          title: 'Keyboard'
         }
       }
     ]
   },
   {
-    path: 'keyboard-sets',
-    component: KeyboardSetsComponent,
+    path: 'keyboard',
+    component: KeyboardComponent,
     outlet: 'popup',
     data: {
-      title: 'Keyboard Sets'
+      title: 'Keyboard'
     }
   },
   {
@@ -663,28 +663,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'keystroke-dataset-sets',
+    path: 'keystroke-dataset',
     children: [
       {
         path: '',
-        component: KeystrokeDatasetSetsComponent
+        component: KeystrokeDatasetComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Keystroke Dataset Sets'
+          title: 'KeystrokeDataset'
         }
       }
     ]
   },
   {
-    path: 'keystroke-dataset-sets',
-    component: KeystrokeDatasetSetsComponent,
+    path: 'keystroke-dataset',
+    component: KeystrokeDatasetComponent,
     outlet: 'popup',
     data: {
-      title: 'Keystroke Dataset Sets'
+      title: 'KeystrokeDataset'
     }
   },
   {
@@ -738,28 +738,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'keystroke-sets',
+    path: 'keystroke',
     children: [
       {
         path: '',
-        component: KeystrokeSetsComponent
+        component: KeystrokeComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Keystroke Sets'
+          title: 'Keystroke'
         }
       }
     ]
   },
   {
-    path: 'keystroke-sets',
-    component: KeystrokeSetsComponent,
+    path: 'keystroke',
+    component: KeystrokeComponent,
     outlet: 'popup',
     data: {
-      title: 'Keystroke Sets'
+      title: 'Keystroke'
     }
   },
   {
@@ -813,28 +813,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'language-sets',
+    path: 'language',
     children: [
       {
         path: '',
-        component: LanguageSetsComponent
+        component: LanguageComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Language Sets'
+          title: 'Language'
         }
       }
     ]
   },
   {
-    path: 'language-sets',
-    component: LanguageSetsComponent,
+    path: 'language',
+    component: LanguageComponent,
     outlet: 'popup',
     data: {
-      title: 'Language Sets'
+      title: 'Language'
     }
   },
   {
@@ -888,28 +888,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'palmprint-sets',
+    path: 'palmprint',
     children: [
       {
         path: '',
-        component: PalmprintSetsComponent
+        component: PalmprintComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Palmprint Sets'
+          title: 'Palmprint'
         }
       }
     ]
   },
   {
-    path: 'palmprint-sets',
-    component: PalmprintSetsComponent,
+    path: 'palmprint',
+    component: PalmprintComponent,
     outlet: 'popup',
     data: {
-      title: 'Palmprint Sets'
+      title: 'Palmprint'
     }
   },
   {
@@ -963,28 +963,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'person-sets',
+    path: 'person',
     children: [
       {
         path: '',
-        component: PersonSetsComponent
+        component: PersonComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Person Sets'
+          title: 'Person'
         }
       }
     ]
   },
   {
-    path: 'person-sets',
-    component: PersonSetsComponent,
+    path: 'person',
+    component: PersonComponent,
     outlet: 'popup',
     data: {
-      title: 'Person Sets'
+      title: 'Person'
     }
   },
   {
@@ -1038,28 +1038,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'sample-dataset-sets',
+    path: 'sample-dataset',
     children: [
       {
         path: '',
-        component: SampleDatasetSetsComponent
+        component: SampleDatasetComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Sample Dataset Sets'
+          title: 'SampleDataset'
         }
       }
     ]
   },
   {
-    path: 'sample-dataset-sets',
-    component: SampleDatasetSetsComponent,
+    path: 'sample-dataset',
+    component: SampleDatasetComponent,
     outlet: 'popup',
     data: {
-      title: 'Sample Dataset Sets'
+      title: 'SampleDataset'
     }
   },
   {
@@ -1113,28 +1113,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'sample-sets',
+    path: 'sample',
     children: [
       {
         path: '',
-        component: SampleSetsComponent
+        component: SampleComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Sample Sets'
+          title: 'Sample'
         }
       }
     ]
   },
   {
-    path: 'sample-sets',
-    component: SampleSetsComponent,
+    path: 'sample',
+    component: SampleComponent,
     outlet: 'popup',
     data: {
-      title: 'Sample Sets'
+      title: 'Sample'
     }
   },
   {
@@ -1188,28 +1188,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'sample-type-sets',
+    path: 'sample-type',
     children: [
       {
         path: '',
-        component: SampleTypeSetsComponent
+        component: SampleTypeComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Sample Type Sets'
+          title: 'SampleType'
         }
       }
     ]
   },
   {
-    path: 'sample-type-sets',
-    component: SampleTypeSetsComponent,
+    path: 'sample-type',
+    component: SampleTypeComponent,
     outlet: 'popup',
     data: {
-      title: 'Sample Type Sets'
+      title: 'SampleType'
     }
   },
   {
@@ -1263,28 +1263,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'signature-sets',
+    path: 'signature',
     children: [
       {
         path: '',
-        component: SignatureSetsComponent
+        component: SignatureComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Signature Sets'
+          title: 'Signature'
         }
       }
     ]
   },
   {
-    path: 'signature-sets',
-    component: SignatureSetsComponent,
+    path: 'signature',
+    component: SignatureComponent,
     outlet: 'popup',
     data: {
-      title: 'Signature Sets'
+      title: 'Signature'
     }
   },
   {
@@ -1338,28 +1338,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'speech-sets',
+    path: 'speech',
     children: [
       {
         path: '',
-        component: SpeechSetsComponent
+        component: SpeechComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Speech Sets'
+          title: 'Speech'
         }
       }
     ]
   },
   {
-    path: 'speech-sets',
-    component: SpeechSetsComponent,
+    path: 'speech',
+    component: SpeechComponent,
     outlet: 'popup',
     data: {
-      title: 'Speech Sets'
+      title: 'Speech'
     }
   },
   {
@@ -1413,28 +1413,28 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'text-sets',
+    path: 'text',
     children: [
       {
         path: '',
-        component: TextSetsComponent
+        component: TextComponent
       },
       {
         path: '',
         component: PageTitleComponent,
         outlet: 'title',
         data: {
-          title: 'Text Sets'
+          title: 'Text'
         }
       }
     ]
   },
   {
-    path: 'text-sets',
-    component: TextSetsComponent,
+    path: 'text',
+    component: TextComponent,
     outlet: 'popup',
     data: {
-      title: 'Text Sets'
+      title: 'Text'
     }
   },
   {
@@ -1487,7 +1487,7 @@ export const routes: Routes = [
       title: 'Edit Text Set'
     }
   },
-  { path: '', redirectTo: '/device-sets', pathMatch: 'full' }
+  { path: '', redirectTo: '/sample', pathMatch: 'full' }
 ];
 
 export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);

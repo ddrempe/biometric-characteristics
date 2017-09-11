@@ -59,5 +59,6 @@
   "events": {
     "load": []
   },
-  "name": "Add Device Type Set"
+  "name": "Add Device Type Set",
+  "access": ""
 }

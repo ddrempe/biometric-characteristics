@@ -76,5 +76,6 @@
       }
     ]
   },
-  "name": "Add Face Set"
+  "name": "Add Face Set",
+  "access": ""
 }
