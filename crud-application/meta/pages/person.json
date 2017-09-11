@@ -1,17 +1,85 @@
 {
+  "access": "",
   "components": [
     {
-      "name": "grid0",
-      "allowDelete": true,
       "allowAdd": true,
+      "allowDelete": true,
       "allowFiltering": true,
       "allowMultiSorting": false,
       "allowPaging": true,
       "allowSorting": true,
       "col": 12,
+      "columns": [
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "format": "date-time",
+          "property": "DateOfBirth",
+          "template": "${data.DateOfBirth | utcDate}",
+          "title": "Date Of Birth",
+          "type": "string"
+        },
+        {
+          "property": "FirstName",
+          "title": "First Name",
+          "type": "string"
+        },
+        {
+          "property": "LastName",
+          "title": "Last Name",
+          "type": "string"
+        },
+        {
+          "property": "Gender",
+          "title": "Gender",
+          "type": "string"
+        },
+        {
+          "property": "Address",
+          "title": "Address",
+          "type": "string"
+        }
+      ],
       "count": "${getPersonSetsCount}",
       "data": "${getPersonSetsResult}",
       "events": {
+        "add": [
+          {
+            "path": "add-person-set",
+            "type": "popup"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete PersonSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deletePersonSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "PersonSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
         "loadData": [
           {
             "name": "biometric characteristics model.getPersonSets",
@@ -56,40 +124,6 @@
             "type": "invoke"
           }
         ],
-        "delete": [
-          {
-            "error": [
-              {
-                "detail": "Unable to delete PersonSet",
-                "severity": "error",
-                "summary": "Error",
-                "type": "notify"
-              }
-            ],
-            "name": "biometric characteristics model.deletePersonSet",
-            "parameters": [
-              {
-                "name": "Id",
-                "value": "${event.Id}"
-              }
-            ],
-            "then": [
-              {
-                "detail": "PersonSet deleted!",
-                "severity": "success",
-                "summary": "Success",
-                "type": "notify"
-              }
-            ],
-            "type": "invoke"
-          }
-        ],
-        "add": [
-          {
-            "path": "add-person-set",
-            "type": "popup"
-          }
-        ],
         "rowSelect": [
           {
             "parameters": [
@@ -103,43 +137,10 @@
           }
         ]
       },
+      "name": "grid0",
       "row": 0,
       "section": null,
       "title": "",
-      "columns": [
-        {
-          "property": "Address",
-          "title": "Address",
-          "type": "string"
-        },
-        {
-          "format": "date-time",
-          "property": "DateOfBirth",
-          "template": "${data.DateOfBirth | utcDate}",
-          "title": "Date Of Birth",
-          "type": "string"
-        },
-        {
-          "property": "FirstName",
-          "title": "First Name",
-          "type": "string"
-        },
-        {
-          "property": "Gender",
-          "title": "Gender",
-          "type": "string"
-        },
-        {
-          "property": "Id",
-          "title": "Id",
-          "type": "integer"
-        },
-        {
-          "property": "LastName",
-          "title": "Last Name",
-          "type": "string"
-        }
-      ],
       "type": "grid"
     }
   ],
@@ -177,6 +178,5 @@
       }
     ]
   },
-  "name": "Person",
-  "access": ""
+  "name": "Person"
 }

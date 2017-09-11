@@ -1,14 +1,11 @@
 <div class="row">
   <div class="col-sm-12">
-    <rz-grid #grid0 name="grid0" [allowDelete]="true" [allowAdd]="true" [allowFiltering]="true" [allowMultiSorting]="false" [allowPaging]="true" [allowSorting]="true" [count]="getSampleSetsCount" [data]="getSampleSetsResult" (loadData)="grid0LoadData($event)" (delete)="grid0Delete($event)" (add)="grid0Add($event)" (rowSelect)="grid0RowSelect($event)">
+    <rz-grid #grid0 [allowAdd]="true" [allowDelete]="true" [allowFiltering]="true" [allowMultiSorting]="false" [allowPaging]="true" [allowSorting]="true" [count]="getSampleSetsCount" [data]="getSampleSetsResult" name="grid0" (add)="grid0Add($event)" (delete)="grid0Delete($event)" (loadData)="grid0LoadData($event)" (rowSelect)="grid0RowSelect($event)">
+      <rz-grid-column property="Id" title="Id" type="integer">
+      </rz-grid-column>
       <rz-grid-column format="date-time" property="DateCreated" title="Date Created" type="string">
         <ng-template let-data>
         {{data?.DateCreated | utcDate}}
-        </ng-template>
-      </rz-grid-column>
-      <rz-grid-column property="DeviceId" title="Device Set" type="integer">
-        <ng-template let-data>
-        {{data?.DeviceSet?.Name}}
         </ng-template>
       </rz-grid-column>
       <rz-grid-column property="FileName" title="File Name" type="string">
@@ -17,23 +14,26 @@
       </rz-grid-column>
       <rz-grid-column property="FileType" title="File Type" type="string">
       </rz-grid-column>
-      <rz-grid-column property="FullFilePath" title="Full File Path" type="string">
-      </rz-grid-column>
-      <rz-grid-column property="Id" title="Id" type="integer">
-      </rz-grid-column>
       <rz-grid-column property="PersonId" title="Person Set" type="integer">
         <ng-template let-data>
         {{data?.PersonSet?.FirstName}}
         </ng-template>
+      </rz-grid-column>
+      <rz-grid-column property="SampleTypeId" title="Sample Type Set" type="integer">
+        <ng-template let-data>
+        {{data?.SampleTypeSet?.Name}}
+        </ng-template>
+      </rz-grid-column>
+      <rz-grid-column property="FullFilePath" title="Full File Path" type="string">
       </rz-grid-column>
       <rz-grid-column property="SampleDatasetId" title="Sample Dataset Set" type="integer">
         <ng-template let-data>
         {{data?.SampleDatasetSet?.Name}}
         </ng-template>
       </rz-grid-column>
-      <rz-grid-column property="SampleTypeId" title="Sample Type Set" type="integer">
+      <rz-grid-column property="DeviceId" title="Device Set" type="integer">
         <ng-template let-data>
-        {{data?.SampleTypeSet?.Name}}
+        {{data?.DeviceSet?.Name}}
         </ng-template>
       </rz-grid-column>
     </rz-grid>

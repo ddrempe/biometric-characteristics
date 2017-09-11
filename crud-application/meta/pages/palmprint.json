@@ -1,17 +1,74 @@
 {
+  "access": "",
   "components": [
     {
-      "name": "grid0",
-      "allowDelete": true,
       "allowAdd": true,
+      "allowDelete": true,
       "allowFiltering": true,
       "allowMultiSorting": false,
       "allowPaging": true,
       "allowSorting": true,
       "col": 12,
+      "columns": [
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "Hand",
+          "title": "Hand",
+          "type": "string"
+        },
+        {
+          "property": "Position",
+          "title": "Position",
+          "type": "string"
+        },
+        {
+          "property": "Sample_Id",
+          "template": "${data.SampleSet?.FilePath}",
+          "title": "Sample Set",
+          "type": "integer"
+        }
+      ],
       "count": "${getPalmprintSetsCount}",
       "data": "${getPalmprintSetsResult}",
       "events": {
+        "add": [
+          {
+            "path": "add-palmprint-set",
+            "type": "popup"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete PalmprintSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deletePalmprintSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "PalmprintSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
         "loadData": [
           {
             "name": "biometric characteristics model.getPalmprintSets",
@@ -56,40 +113,6 @@
             "type": "invoke"
           }
         ],
-        "delete": [
-          {
-            "error": [
-              {
-                "detail": "Unable to delete PalmprintSet",
-                "severity": "error",
-                "summary": "Error",
-                "type": "notify"
-              }
-            ],
-            "name": "biometric characteristics model.deletePalmprintSet",
-            "parameters": [
-              {
-                "name": "Id",
-                "value": "${event.Id}"
-              }
-            ],
-            "then": [
-              {
-                "detail": "PalmprintSet deleted!",
-                "severity": "success",
-                "summary": "Success",
-                "type": "notify"
-              }
-            ],
-            "type": "invoke"
-          }
-        ],
-        "add": [
-          {
-            "path": "add-palmprint-set",
-            "type": "popup"
-          }
-        ],
         "rowSelect": [
           {
             "parameters": [
@@ -103,32 +126,10 @@
           }
         ]
       },
+      "name": "grid0",
       "row": 0,
       "section": null,
       "title": "",
-      "columns": [
-        {
-          "property": "Hand",
-          "title": "Hand",
-          "type": "string"
-        },
-        {
-          "property": "Id",
-          "title": "Id",
-          "type": "integer"
-        },
-        {
-          "property": "Position",
-          "title": "Position",
-          "type": "string"
-        },
-        {
-          "property": "Sample_Id",
-          "template": "${data.SampleSet?.FilePath}",
-          "title": "Sample Set",
-          "type": "integer"
-        }
-      ],
       "type": "grid"
     }
   ],
@@ -170,6 +171,5 @@
       }
     ]
   },
-  "name": "Palmprint",
-  "access": ""
+  "name": "Palmprint"
 }

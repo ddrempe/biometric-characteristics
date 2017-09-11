@@ -1,127 +1,18 @@
 {
+  "access": "",
   "components": [
     {
-      "name": "grid0",
-      "allowDelete": true,
       "allowAdd": true,
+      "allowDelete": true,
       "allowFiltering": true,
       "allowMultiSorting": false,
       "allowPaging": true,
       "allowSorting": true,
       "col": 12,
-      "count": "${getKeystrokeSetsCount}",
-      "data": "${getKeystrokeSetsResult}",
-      "events": {
-        "loadData": [
-          {
-            "name": "biometric characteristics model.getKeystrokeSets",
-            "parameters": [
-              {
-                "name": "$filter",
-                "value": "${event.filter}"
-              },
-              {
-                "name": "$top",
-                "value": "this.grid0.allowPaging ? event.top : null"
-              },
-              {
-                "name": "$skip",
-                "value": "this.grid0.allowPaging ? event.skip : null"
-              },
-              {
-                "name": "$orderby",
-                "value": "${event.orderby}"
-              },
-              {
-                "name": "$count",
-                "value": "this.grid0.allowPaging"
-              },
-              {
-                "name": "$expand",
-                "value": "KeyboardSet,KeystrokeDatasetSet,PersonSet"
-              }
-            ],
-            "then": [
-              {
-                "name": "getKeystrokeSetsResult",
-                "type": "set",
-                "value": "${result.value}"
-              },
-              {
-                "name": "getKeystrokeSetsCount",
-                "type": "set",
-                "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
-              }
-            ],
-            "type": "invoke"
-          }
-        ],
-        "delete": [
-          {
-            "error": [
-              {
-                "detail": "Unable to delete KeystrokeSet",
-                "severity": "error",
-                "summary": "Error",
-                "type": "notify"
-              }
-            ],
-            "name": "biometric characteristics model.deleteKeystrokeSet",
-            "parameters": [
-              {
-                "name": "Id",
-                "value": "${event.Id}"
-              }
-            ],
-            "then": [
-              {
-                "detail": "KeystrokeSet deleted!",
-                "severity": "success",
-                "summary": "Success",
-                "type": "notify"
-              }
-            ],
-            "type": "invoke"
-          }
-        ],
-        "add": [
-          {
-            "path": "add-keystroke-set",
-            "type": "popup"
-          }
-        ],
-        "rowSelect": [
-          {
-            "parameters": [
-              {
-                "name": "Id",
-                "value": "${event.Id}"
-              }
-            ],
-            "path": "edit-keystroke-set",
-            "type": "popup"
-          }
-        ]
-      },
-      "row": 0,
-      "section": null,
-      "title": "",
       "columns": [
         {
           "property": "Id",
           "title": "Id",
-          "type": "integer"
-        },
-        {
-          "property": "KeyboardId",
-          "template": "${data.KeyboardSet?.Name}",
-          "title": "Keyboard Set",
-          "type": "integer"
-        },
-        {
-          "property": "KeystrokeDatasetId",
-          "template": "${data.KeystrokeDatasetSet?.Name}",
-          "title": "Keystroke Dataset Set",
           "type": "integer"
         },
         {
@@ -179,8 +70,118 @@
           "property": "Vector",
           "title": "Vector",
           "type": "string"
+        },
+        {
+          "property": "KeyboardId",
+          "template": "${data.KeyboardSet?.Name}",
+          "title": "Keyboard Set",
+          "type": "integer"
+        },
+        {
+          "property": "KeystrokeDatasetId",
+          "template": "${data.KeystrokeDatasetSet?.Name}",
+          "title": "Keystroke Dataset Set",
+          "type": "integer"
         }
       ],
+      "count": "${getKeystrokeSetsCount}",
+      "data": "${getKeystrokeSetsResult}",
+      "events": {
+        "add": [
+          {
+            "path": "add-keystroke-set",
+            "type": "popup"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete KeystrokeSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteKeystrokeSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "KeystrokeSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "loadData": [
+          {
+            "name": "biometric characteristics model.getKeystrokeSets",
+            "parameters": [
+              {
+                "name": "$filter",
+                "value": "${event.filter}"
+              },
+              {
+                "name": "$top",
+                "value": "this.grid0.allowPaging ? event.top : null"
+              },
+              {
+                "name": "$skip",
+                "value": "this.grid0.allowPaging ? event.skip : null"
+              },
+              {
+                "name": "$orderby",
+                "value": "${event.orderby}"
+              },
+              {
+                "name": "$count",
+                "value": "this.grid0.allowPaging"
+              },
+              {
+                "name": "$expand",
+                "value": "KeyboardSet,KeystrokeDatasetSet,PersonSet"
+              }
+            ],
+            "then": [
+              {
+                "name": "getKeystrokeSetsResult",
+                "type": "set",
+                "value": "${result.value}"
+              },
+              {
+                "name": "getKeystrokeSetsCount",
+                "type": "set",
+                "value": "this.grid0.allowPaging ? result['@odata.count'] : ${result.value.length}"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
+        "rowSelect": [
+          {
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "path": "edit-keystroke-set",
+            "type": "popup"
+          }
+        ]
+      },
+      "name": "grid0",
+      "row": 0,
+      "section": null,
+      "title": "",
       "type": "grid"
     }
   ],
@@ -222,6 +223,5 @@
       }
     ]
   },
-  "name": "Keystroke",
-  "access": ""
+  "name": "Keystroke"
 }

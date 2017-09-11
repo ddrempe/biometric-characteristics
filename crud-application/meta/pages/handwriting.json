@@ -1,17 +1,70 @@
 {
+  "access": "",
   "components": [
     {
-      "name": "grid0",
-      "allowDelete": true,
       "allowAdd": true,
+      "allowDelete": true,
       "allowFiltering": true,
       "allowMultiSorting": false,
       "allowPaging": true,
       "allowSorting": true,
       "col": 12,
+      "columns": [
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "TextId",
+          "template": "${data.TextSet?.Content}",
+          "title": "Text Set",
+          "type": "integer"
+        },
+        {
+          "property": "Sample_Id",
+          "template": "${data.SampleSet?.FilePath}",
+          "title": "Sample Set",
+          "type": "integer"
+        }
+      ],
       "count": "${getHandwritingSetsCount}",
       "data": "${getHandwritingSetsResult}",
       "events": {
+        "add": [
+          {
+            "path": "add-handwriting-set",
+            "type": "popup"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete HandwritingSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteHandwritingSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "HandwritingSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
         "loadData": [
           {
             "name": "biometric characteristics model.getHandwritingSets",
@@ -56,40 +109,6 @@
             "type": "invoke"
           }
         ],
-        "delete": [
-          {
-            "error": [
-              {
-                "detail": "Unable to delete HandwritingSet",
-                "severity": "error",
-                "summary": "Error",
-                "type": "notify"
-              }
-            ],
-            "name": "biometric characteristics model.deleteHandwritingSet",
-            "parameters": [
-              {
-                "name": "Id",
-                "value": "${event.Id}"
-              }
-            ],
-            "then": [
-              {
-                "detail": "HandwritingSet deleted!",
-                "severity": "success",
-                "summary": "Success",
-                "type": "notify"
-              }
-            ],
-            "type": "invoke"
-          }
-        ],
-        "add": [
-          {
-            "path": "add-handwriting-set",
-            "type": "popup"
-          }
-        ],
         "rowSelect": [
           {
             "parameters": [
@@ -103,28 +122,10 @@
           }
         ]
       },
+      "name": "grid0",
       "row": 0,
       "section": null,
       "title": "",
-      "columns": [
-        {
-          "property": "Id",
-          "title": "Id",
-          "type": "integer"
-        },
-        {
-          "property": "Sample_Id",
-          "template": "${data.SampleSet?.FilePath}",
-          "title": "Sample Set",
-          "type": "integer"
-        },
-        {
-          "property": "TextId",
-          "template": "${data.TextSet?.Content}",
-          "title": "Text Set",
-          "type": "integer"
-        }
-      ],
       "type": "grid"
     }
   ],
@@ -166,6 +167,5 @@
       }
     ]
   },
-  "name": "Handwriting",
-  "access": ""
+  "name": "Handwriting"
 }

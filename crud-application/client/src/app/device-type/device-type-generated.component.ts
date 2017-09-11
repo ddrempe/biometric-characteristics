@@ -75,15 +75,12 @@ export class DeviceTypeGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0LoadData(event: any) {
-    this.biometricCharacteristicsModel.getDeviceTypeSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, ``)
-    .subscribe((result: any) => {
-      this.getDeviceTypeSetsResult = result.value;
-
-      this.getDeviceTypeSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-
-    });
+  grid0Add(event: any) {
+    if (window.innerWidth >= 500) { 
+      this.router.navigate([{ outlets: { popup: ['add-device-type-set'] } }]);
+    } else {
+      this.router.navigate(['add-device-type-set']);
+    }
   }
 
   grid0Delete(event: any) {
@@ -95,12 +92,15 @@ export class DeviceTypeGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0Add(event: any) {
-    if (window.innerWidth >= 500) { 
-      this.router.navigate([{ outlets: { popup: ['add-device-type-set'] } }]);
-    } else {
-      this.router.navigate(['add-device-type-set']);
-    }
+  grid0LoadData(event: any) {
+    this.biometricCharacteristicsModel.getDeviceTypeSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, ``)
+    .subscribe((result: any) => {
+      this.getDeviceTypeSetsResult = result.value;
+
+      this.getDeviceTypeSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
+    }, (result: any) => {
+
+    });
   }
 
   grid0RowSelect(event: any) {

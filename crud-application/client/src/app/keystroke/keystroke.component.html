@@ -1,17 +1,7 @@
 <div class="row">
   <div class="col-sm-12">
-    <rz-grid #grid0 name="grid0" [allowDelete]="true" [allowAdd]="true" [allowFiltering]="true" [allowMultiSorting]="false" [allowPaging]="true" [allowSorting]="true" [count]="getKeystrokeSetsCount" [data]="getKeystrokeSetsResult" (loadData)="grid0LoadData($event)" (delete)="grid0Delete($event)" (add)="grid0Add($event)" (rowSelect)="grid0RowSelect($event)">
+    <rz-grid #grid0 [allowAdd]="true" [allowDelete]="true" [allowFiltering]="true" [allowMultiSorting]="false" [allowPaging]="true" [allowSorting]="true" [count]="getKeystrokeSetsCount" [data]="getKeystrokeSetsResult" name="grid0" (add)="grid0Add($event)" (delete)="grid0Delete($event)" (loadData)="grid0LoadData($event)" (rowSelect)="grid0RowSelect($event)">
       <rz-grid-column property="Id" title="Id" type="integer">
-      </rz-grid-column>
-      <rz-grid-column property="KeyboardId" title="Keyboard Set" type="integer">
-        <ng-template let-data>
-        {{data?.KeyboardSet?.Name}}
-        </ng-template>
-      </rz-grid-column>
-      <rz-grid-column property="KeystrokeDatasetId" title="Keystroke Dataset Set" type="integer">
-        <ng-template let-data>
-        {{data?.KeystrokeDatasetSet?.Name}}
-        </ng-template>
       </rz-grid-column>
       <rz-grid-column property="Password" title="Password" type="string">
       </rz-grid-column>
@@ -37,6 +27,16 @@
       <rz-grid-column property="TimeToType" title="Time To Type" type="string">
       </rz-grid-column>
       <rz-grid-column property="Vector" title="Vector" type="string">
+      </rz-grid-column>
+      <rz-grid-column property="KeyboardId" title="Keyboard Set" type="integer">
+        <ng-template let-data>
+        {{data?.KeyboardSet?.Name}}
+        </ng-template>
+      </rz-grid-column>
+      <rz-grid-column property="KeystrokeDatasetId" title="Keystroke Dataset Set" type="integer">
+        <ng-template let-data>
+        {{data?.KeystrokeDatasetSet?.Name}}
+        </ng-template>
       </rz-grid-column>
     </rz-grid>
   </div>

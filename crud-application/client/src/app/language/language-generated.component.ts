@@ -75,15 +75,12 @@ export class LanguageGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0LoadData(event: any) {
-    this.biometricCharacteristicsModel.getLanguageSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, ``)
-    .subscribe((result: any) => {
-      this.getLanguageSetsResult = result.value;
-
-      this.getLanguageSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-
-    });
+  grid0Add(event: any) {
+    if (window.innerWidth >= 500) { 
+      this.router.navigate([{ outlets: { popup: ['add-language-set'] } }]);
+    } else {
+      this.router.navigate(['add-language-set']);
+    }
   }
 
   grid0Delete(event: any) {
@@ -95,12 +92,15 @@ export class LanguageGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0Add(event: any) {
-    if (window.innerWidth >= 500) { 
-      this.router.navigate([{ outlets: { popup: ['add-language-set'] } }]);
-    } else {
-      this.router.navigate(['add-language-set']);
-    }
+  grid0LoadData(event: any) {
+    this.biometricCharacteristicsModel.getLanguageSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, ``)
+    .subscribe((result: any) => {
+      this.getLanguageSetsResult = result.value;
+
+      this.getLanguageSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
+    }, (result: any) => {
+
+    });
   }
 
   grid0RowSelect(event: any) {

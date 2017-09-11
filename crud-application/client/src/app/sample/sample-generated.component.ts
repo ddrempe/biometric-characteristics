@@ -73,17 +73,16 @@ export class SampleGenerated implements AfterViewInit, OnInit, OnDestroy {
     }, (result: any) => {
 
     });
+
+
   }
 
-  grid0LoadData(event: any) {
-    this.biometricCharacteristicsModel.getSampleSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, `DeviceSet,PersonSet,SampleDatasetSet,SampleTypeSet`)
-    .subscribe((result: any) => {
-      this.getSampleSetsResult = result.value;
-
-      this.getSampleSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-
-    });
+  grid0Add(event: any) {
+    if (window.innerWidth >= 500) { 
+      this.router.navigate([{ outlets: { popup: ['add-sample-set'] } }]);
+    } else {
+      this.router.navigate(['add-sample-set']);
+    }
   }
 
   grid0Delete(event: any) {
@@ -95,12 +94,15 @@ export class SampleGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0Add(event: any) {
-    if (window.innerWidth >= 500) { 
-      this.router.navigate([{ outlets: { popup: ['add-sample-set'] } }]);
-    } else {
-      this.router.navigate(['add-sample-set']);
-    }
+  grid0LoadData(event: any) {
+    this.biometricCharacteristicsModel.getSampleSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, `DeviceSet,PersonSet,SampleDatasetSet,SampleTypeSet`)
+    .subscribe((result: any) => {
+      this.getSampleSetsResult = result.value;
+
+      this.getSampleSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
+    }, (result: any) => {
+
+    });
   }
 
   grid0RowSelect(event: any) {

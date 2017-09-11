@@ -75,15 +75,12 @@ export class SampleTypeGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0LoadData(event: any) {
-    this.biometricCharacteristicsModel.getSampleTypeSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, ``)
-    .subscribe((result: any) => {
-      this.getSampleTypeSetsResult = result.value;
-
-      this.getSampleTypeSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-
-    });
+  grid0Add(event: any) {
+    if (window.innerWidth >= 500) { 
+      this.router.navigate([{ outlets: { popup: ['add-sample-type-set'] } }]);
+    } else {
+      this.router.navigate(['add-sample-type-set']);
+    }
   }
 
   grid0Delete(event: any) {
@@ -95,12 +92,15 @@ export class SampleTypeGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0Add(event: any) {
-    if (window.innerWidth >= 500) { 
-      this.router.navigate([{ outlets: { popup: ['add-sample-type-set'] } }]);
-    } else {
-      this.router.navigate(['add-sample-type-set']);
-    }
+  grid0LoadData(event: any) {
+    this.biometricCharacteristicsModel.getSampleTypeSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, ``)
+    .subscribe((result: any) => {
+      this.getSampleTypeSetsResult = result.value;
+
+      this.getSampleTypeSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
+    }, (result: any) => {
+
+    });
   }
 
   grid0RowSelect(event: any) {

@@ -75,15 +75,12 @@ export class KeystrokeGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0LoadData(event: any) {
-    this.biometricCharacteristicsModel.getKeystrokeSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, `KeyboardSet,KeystrokeDatasetSet,PersonSet`)
-    .subscribe((result: any) => {
-      this.getKeystrokeSetsResult = result.value;
-
-      this.getKeystrokeSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-
-    });
+  grid0Add(event: any) {
+    if (window.innerWidth >= 500) { 
+      this.router.navigate([{ outlets: { popup: ['add-keystroke-set'] } }]);
+    } else {
+      this.router.navigate(['add-keystroke-set']);
+    }
   }
 
   grid0Delete(event: any) {
@@ -95,12 +92,15 @@ export class KeystrokeGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0Add(event: any) {
-    if (window.innerWidth >= 500) { 
-      this.router.navigate([{ outlets: { popup: ['add-keystroke-set'] } }]);
-    } else {
-      this.router.navigate(['add-keystroke-set']);
-    }
+  grid0LoadData(event: any) {
+    this.biometricCharacteristicsModel.getKeystrokeSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, `KeyboardSet,KeystrokeDatasetSet,PersonSet`)
+    .subscribe((result: any) => {
+      this.getKeystrokeSetsResult = result.value;
+
+      this.getKeystrokeSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
+    }, (result: any) => {
+
+    });
   }
 
   grid0RowSelect(event: any) {

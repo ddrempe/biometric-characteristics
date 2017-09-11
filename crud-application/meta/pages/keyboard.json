@@ -1,17 +1,73 @@
 {
+  "access": "",
   "components": [
     {
-      "name": "grid0",
-      "allowDelete": true,
       "allowAdd": true,
+      "allowDelete": true,
       "allowFiltering": true,
       "allowMultiSorting": false,
       "allowPaging": true,
       "allowSorting": true,
       "col": 12,
+      "columns": [
+        {
+          "property": "Id",
+          "title": "Id",
+          "type": "integer"
+        },
+        {
+          "property": "Name",
+          "title": "Name",
+          "type": "string"
+        },
+        {
+          "property": "Description",
+          "title": "Description",
+          "type": "string"
+        },
+        {
+          "property": "Type",
+          "title": "Type",
+          "type": "string"
+        }
+      ],
       "count": "${getKeyboardSetsCount}",
       "data": "${getKeyboardSetsResult}",
       "events": {
+        "add": [
+          {
+            "path": "add-keyboard-set",
+            "type": "popup"
+          }
+        ],
+        "delete": [
+          {
+            "error": [
+              {
+                "detail": "Unable to delete KeyboardSet",
+                "severity": "error",
+                "summary": "Error",
+                "type": "notify"
+              }
+            ],
+            "name": "biometric characteristics model.deleteKeyboardSet",
+            "parameters": [
+              {
+                "name": "Id",
+                "value": "${event.Id}"
+              }
+            ],
+            "then": [
+              {
+                "detail": "KeyboardSet deleted!",
+                "severity": "success",
+                "summary": "Success",
+                "type": "notify"
+              }
+            ],
+            "type": "invoke"
+          }
+        ],
         "loadData": [
           {
             "name": "biometric characteristics model.getKeyboardSets",
@@ -56,40 +112,6 @@
             "type": "invoke"
           }
         ],
-        "delete": [
-          {
-            "error": [
-              {
-                "detail": "Unable to delete KeyboardSet",
-                "severity": "error",
-                "summary": "Error",
-                "type": "notify"
-              }
-            ],
-            "name": "biometric characteristics model.deleteKeyboardSet",
-            "parameters": [
-              {
-                "name": "Id",
-                "value": "${event.Id}"
-              }
-            ],
-            "then": [
-              {
-                "detail": "KeyboardSet deleted!",
-                "severity": "success",
-                "summary": "Success",
-                "type": "notify"
-              }
-            ],
-            "type": "invoke"
-          }
-        ],
-        "add": [
-          {
-            "path": "add-keyboard-set",
-            "type": "popup"
-          }
-        ],
         "rowSelect": [
           {
             "parameters": [
@@ -103,31 +125,10 @@
           }
         ]
       },
+      "name": "grid0",
       "row": 0,
       "section": null,
       "title": "",
-      "columns": [
-        {
-          "property": "Description",
-          "title": "Description",
-          "type": "string"
-        },
-        {
-          "property": "Id",
-          "title": "Id",
-          "type": "integer"
-        },
-        {
-          "property": "Name",
-          "title": "Name",
-          "type": "string"
-        },
-        {
-          "property": "Type",
-          "title": "Type",
-          "type": "string"
-        }
-      ],
       "type": "grid"
     }
   ],
@@ -165,6 +166,5 @@
       }
     ]
   },
-  "name": "Keyboard",
-  "access": ""
+  "name": "Keyboard"
 }

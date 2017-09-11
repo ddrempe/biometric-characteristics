@@ -75,15 +75,12 @@ export class GaitGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0LoadData(event: any) {
-    this.biometricCharacteristicsModel.getGaitSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, `SampleSet`)
-    .subscribe((result: any) => {
-      this.getGaitSetsResult = result.value;
-
-      this.getGaitSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-
-    });
+  grid0Add(event: any) {
+    if (window.innerWidth >= 500) { 
+      this.router.navigate([{ outlets: { popup: ['add-gait-set'] } }]);
+    } else {
+      this.router.navigate(['add-gait-set']);
+    }
   }
 
   grid0Delete(event: any) {
@@ -95,12 +92,15 @@ export class GaitGenerated implements AfterViewInit, OnInit, OnDestroy {
     });
   }
 
-  grid0Add(event: any) {
-    if (window.innerWidth >= 500) { 
-      this.router.navigate([{ outlets: { popup: ['add-gait-set'] } }]);
-    } else {
-      this.router.navigate(['add-gait-set']);
-    }
+  grid0LoadData(event: any) {
+    this.biometricCharacteristicsModel.getGaitSets(`${event.filter}`, this.grid0.allowPaging ? event.top : null, this.grid0.allowPaging ? event.skip : null, `${event.orderby}`, this.grid0.allowPaging, `SampleSet`)
+    .subscribe((result: any) => {
+      this.getGaitSetsResult = result.value;
+
+      this.getGaitSetsCount = this.grid0.allowPaging ? result['@odata.count'] : result.value.length;
+    }, (result: any) => {
+
+    });
   }
 
   grid0RowSelect(event: any) {
